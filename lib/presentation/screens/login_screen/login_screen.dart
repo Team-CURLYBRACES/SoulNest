@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:soulnest/presentation/widgets/custom_button.dart';
+import 'package:soulnest/presentation/widgets/divider.dart';
 import 'package:soulnest/presentation/widgets/forget_password_checkbox.dart';
 import 'package:soulnest/presentation/widgets/input_filed.dart';
 import 'package:soulnest/presentation/widgets/sign_in_logos.dart';
@@ -59,33 +60,11 @@ class LoginScreen extends StatelessWidget {
                   ),
                   SignUp(),
                   SizedBox(
-                    height: 20,
+                    height: 30,
                   ),
-                  Row(
-                    children: [
-                      Expanded(
-                        child: Divider(
-                          color: Colors.grey,
-                          thickness: 0.5,
-                        ),
-                      ),
-                      Padding(
-                        padding: EdgeInsets.symmetric(horizontal: 20),
-                        child: Text(
-                          "OR",
-                          style: TextStyle(
-                            color: Colors.grey,
-                            fontSize: 14,
-                          ),
-                        ),
-                      ),
-                      Expanded(
-                        child: Divider(
-                          color: Colors.grey,
-                          thickness: 0.5,
-                        ),
-                      )
-                    ],
+                  DividerOr(),
+                  SizedBox(
+                    height: 30,
                   ),
                   SignInLogos()
                 ],
