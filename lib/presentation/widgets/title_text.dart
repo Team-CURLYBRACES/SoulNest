@@ -8,7 +8,7 @@ class TitleText extends StatelessWidget {
     return const Row(
       children: [
         Text(
-          "Welcome Back!",
+          "Welcome back!",
           style: TextStyle(
             fontSize: 20,
             fontWeight: FontWeight.bold,

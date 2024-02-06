@@ -16,15 +16,21 @@ class _ForgetPasswordState extends State<ForgetPassword> {
       mainAxisAlignment: MainAxisAlignment.spaceBetween,
       children: [
         Row(
-          mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
-            Checkbox(
-              value: isChecked,
-              onChanged: (bool? value) {
-                setState(() {
-                  isChecked = value ?? false;
-                });
-              },
+            SizedBox(
+              height: 20,
+              width: 20,
+              child: Checkbox(
+                value: isChecked,
+                onChanged: (bool? value) {
+                  setState(() {
+                    isChecked = value!;
+                  });
+                },
+              ),
+            ),
+            const SizedBox(
+              width: 10,
             ),
             const Text(
               "Remember Me",

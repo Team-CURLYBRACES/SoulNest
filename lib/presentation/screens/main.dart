@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:soulnest/screens/login_screen.dart';
+import 'package:soulnest/presentation/screens/login_screen/login_screen.dart';
 
 void main() {
   runApp(const App());
