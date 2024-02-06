@@ -14,15 +14,18 @@ class CustomeButton extends StatelessWidget {
     return SizedBox(
       width: double.infinity,
       child: Expanded(
-        child: TextButton(
-          style: const ButtonStyle(
-              backgroundColor: MaterialStatePropertyAll(
-            Color.fromARGB(255, 0, 61, 110),
-          )),
-          onPressed: () {},
-          child: Text(
-            buttonText,
-            style: TextStyle(color: Colors.white),
+        child: SizedBox(
+          height: 55,
+          child: TextButton(
+            style: const ButtonStyle(
+                backgroundColor: MaterialStatePropertyAll(
+              Color.fromARGB(255, 0, 61, 110),
+            )),
+            onPressed: () {},
+            child: Text(
+              buttonText,
+              style: TextStyle(color: Colors.white),
+            ),
           ),
         ),
       ),

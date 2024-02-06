@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:soulnest/presentation/widgets/custom_button.dart';
-import 'package:soulnest/presentation/widgets/forget_password_checkbox.dart';
-import 'package:soulnest/presentation/widgets/input_filed.dart';
-import 'package:soulnest/presentation/widgets/sign_up.dart';
-import 'package:soulnest/presentation/widgets/title_text.dart';
+import 'package:soulnest/presentation/screens/login_screen/widgets/custom_button.dart';
+import 'package:soulnest/presentation/screens/login_screen/widgets/forget_password_checkbox.dart';
+import 'package:soulnest/presentation/screens/login_screen/widgets/input_filed.dart';
+import 'package:soulnest/presentation/screens/login_screen/widgets/sign_up.dart';
+import 'package:soulnest/presentation/screens/login_screen/widgets/title_text.dart';
 
 class LoginScreen extends StatelessWidget {
   const LoginScreen({super.key});
