@@ -11,7 +11,7 @@ class SignInLogos extends StatelessWidget {
       children: [
         SvgPicture.asset(
           "assets/images/apple.svg",
-          width: 50,
+          width: 53,
         ),
         const SizedBox(
           width: 30,
@@ -25,7 +25,7 @@ class SignInLogos extends StatelessWidget {
         ),
         SvgPicture.asset(
           "assets/images/google.svg",
-          width: 50,
+          width: 47,
         ),
       ],
     );

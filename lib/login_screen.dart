@@ -35,6 +35,7 @@ class LoginScreen extends StatelessWidget {
                     height: 40,
                   ),
                   InputFiled(
+                    textFiledTitle: "Enter Email",
                     inputText: "Enter the email",
                     showText: false,
                   ),
@@ -42,6 +43,7 @@ class LoginScreen extends StatelessWidget {
                     height: 20,
                   ),
                   InputFiled(
+                    textFiledTitle: "Enter Password",
                     inputText: "Enter the password",
                     showText: true,
                   ),
