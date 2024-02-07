@@ -17,59 +17,60 @@ class LoginScreen extends StatelessWidget {
         child: SingleChildScrollView(
           child: Padding(
             padding: EdgeInsets.symmetric(horizontal: 30),
-            child: SizedBox(
-              width: 1000,
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.center,
-                children: [
-                  SizedBox(
-                    height: 30,
-                  ),
-                  Image(
-                    image: AssetImage("assets/logos/soulNest.png"),
-                    width: 100,
-                  ),
-                  SizedBox(
-                    height: 40,
-                  ),
-                  TitleText(),
-                  SizedBox(
-                    height: 40,
-                  ),
-                  InputFiled(
-                    textFiledTitle: "Email address",
-                    inputText: "John@gmail.com",
-                    showText: false,
-                  ),
-                  SizedBox(
-                    height: 20,
-                  ),
-                  InputFiled(
-                    textFiledTitle: "Password",
-                    inputText: "Password",
-                    showText: true,
-                  ),
-                  SizedBox(
-                    height: 10,
-                  ),
-                  ForgetPassword(),
-                  SizedBox(
-                    height: 20,
-                  ),
-                  CustomeButton(buttonText: "Sign In"),
-                  SizedBox(
-                    height: 10,
-                  ),
-                  SignUp(),
-                  SizedBox(
-                    height: 20,
-                  ),
-                  DividerOr(),
-                  SizedBox(
-                    height: 20,
-                  ),
-                  SignInLogos()
-                ],
+            child: Expanded(
+              child: SizedBox(
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.center,
+                  children: [
+                    SizedBox(
+                      height: 30,
+                    ),
+                    Image(
+                      image: AssetImage("assets/logos/soulNest.png"),
+                      width: 100,
+                    ),
+                    SizedBox(
+                      height: 40,
+                    ),
+                    TitleText(),
+                    SizedBox(
+                      height: 40,
+                    ),
+                    InputFiled(
+                      textFiledTitle: "Email address",
+                      inputText: "John@gmail.com",
+                      showText: false,
+                    ),
+                    SizedBox(
+                      height: 20,
+                    ),
+                    InputFiled(
+                      textFiledTitle: "Password",
+                      inputText: "Password",
+                      showText: true,
+                    ),
+                    SizedBox(
+                      height: 10,
+                    ),
+                    ForgetPassword(),
+                    SizedBox(
+                      height: 20,
+                    ),
+                    CustomeButton(buttonText: "Sign In"),
+                    SizedBox(
+                      height: 10,
+                    ),
+                    SignUp(),
+                    SizedBox(
+                      height: 20,
+                    ),
+                    DividerOr(),
+                    SizedBox(
+                      height: 20,
+                    ),
+                    SignInLogos()
+                  ],
+                ),
               ),
             ),
           ),
