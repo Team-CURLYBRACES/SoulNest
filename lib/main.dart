@@ -15,7 +15,7 @@ class App extends StatelessWidget {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       theme: ThemeData(fontFamily: "poppins"),
-      initialRoute: "/",
+      initialRoute: "/login",
       routes: {
         "/home": (context) => const HomeScreen(),
         "/login": (context) => const LoginScreen(),
