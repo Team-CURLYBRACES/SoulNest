@@ -1,5 +1,3 @@
-// ignore_for_file: prefer_const_constructors
-
 import 'package:flutter/material.dart';
 
 class CustomeButton extends StatelessWidget {
@@ -21,10 +19,12 @@ class CustomeButton extends StatelessWidget {
                 backgroundColor: MaterialStatePropertyAll(
               Color.fromARGB(255, 0, 61, 110),
             )),
-            onPressed: () {},
+            onPressed: () {
+              Navigator.pushNamed(context, "/home");
+            },
             child: Text(
               buttonText,
-              style: TextStyle(color: Colors.white),
+              style: const TextStyle(color: Colors.white),
             ),
           ),
         ),
