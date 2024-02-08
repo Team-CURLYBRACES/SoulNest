@@ -17,8 +17,10 @@ class SignUpScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    // ignore: prefer_const_constructors
     return Scaffold(
-      body: SafeArea(
+      appBar: AppBar(),
+      body: const SafeArea(
         child: SingleChildScrollView(
           child: Padding(
             padding: EdgeInsets.symmetric(horizontal: 30),
@@ -57,7 +59,6 @@ class SignUpScreen extends StatelessWidget {
                     SizedBox(
                       height: 10,
                     ),
-                   
                     SizedBox(
                       height: 20,
                     ),
@@ -65,15 +66,12 @@ class SignUpScreen extends StatelessWidget {
                     SizedBox(
                       height: 10,
                     ),
-
                     SizedBox(
                       height: 20,
                     ),
-
                     SizedBox(
                       height: 20,
                     ),
-
                   ],
                 ),
               ),
