@@ -19,7 +19,7 @@ class SignUp_Interests extends StatelessWidget {
                 "Choose your interests",
                 style: TextStyle(
                   fontFamily: "poppins",
-                  fontSize: 20,
+                  fontSize: 25,
                   fontWeight: FontWeight.bold,
                 ),
               ),
@@ -30,7 +30,7 @@ class SignUp_Interests extends StatelessWidget {
                 "Please choose your interests so we can recommend more relevant therapy suggestions  ",
                 style: TextStyle(
                   fontFamily: "Poppins",
-                  fontSize: 16,
+                  fontSize: 21,
                   fontWeight: FontWeight.normal,
                 ),
               ),
