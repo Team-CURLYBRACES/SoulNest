@@ -45,10 +45,11 @@ class _MyWidgetState extends State<SignUp_Interests> {
           const SizedBox(height: 30),
           // checkboxes
           Checkbox(
+            activeColor: Color.fromARGB(255, 0, 83, 145),
             value: value,
-            onChanged: (value) => setState(() {
+            onChanged: (value) =>setState(()=> this.value = value!),
               
-            }))
+            )
 
           // previous and next buttons
         ],
