@@ -8,6 +8,8 @@ class SignUp_Interests extends StatefulWidget {
 }
 
 class _MyWidgetState extends State<SignUp_Interests> {
+  bool value = false;
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -42,6 +44,11 @@ class _MyWidgetState extends State<SignUp_Interests> {
 
           const SizedBox(height: 30),
           // checkboxes
+          Checkbox(
+            value: value,
+            onChanged: (value) => setState(() {
+              
+            }))
 
           // previous and next buttons
         ],
