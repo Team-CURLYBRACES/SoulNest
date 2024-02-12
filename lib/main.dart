@@ -1,3 +1,5 @@
+// ignore_for_file: deprecated_member_use
+
 import 'package:flutter/material.dart';
 import 'package:soulnest/presentation/screens/home_screen/home_screen.dart';
 import 'package:soulnest/presentation/screens/login_screen/login_screen.dart';
@@ -14,7 +16,27 @@ class App extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      theme: ThemeData(fontFamily: "poppins"),
+      theme: ThemeData(
+        fontFamily: "Poppins",
+        textTheme: const TextTheme(
+          headline1: TextStyle(
+              fontSize: 26, color: Colors.black, fontWeight: FontWeight.w900),
+          headline2: TextStyle(
+              fontSize: 24, color: Colors.black, fontWeight: FontWeight.w900),
+          headline3: TextStyle(
+              fontSize: 20, color: Colors.black, fontWeight: FontWeight.w900),
+          headline4: TextStyle(
+              fontSize: 18, color: Colors.black, fontWeight: FontWeight.w700),
+          headline5: TextStyle(
+              fontSize: 16, color: Colors.black, fontWeight: FontWeight.w700),
+          headline6: TextStyle(fontSize: 14, color: Colors.black),
+          subtitle1: TextStyle(fontSize: 16, color: Colors.black),
+          subtitle2: TextStyle(fontSize: 16, color: Colors.black),
+          bodyText1: TextStyle(fontSize: 16, color: Colors.black),
+          bodyText2: TextStyle(fontSize: 14, color: Colors.black),
+          button: TextStyle(fontSize: 20, color: Colors.black),
+        ),
+      ),
       initialRoute: "/login",
       routes: {
         "/home": (context) => const HomeScreen(),
