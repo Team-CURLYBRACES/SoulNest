@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:soulnest/presentation/screens/home_screen/widgets/home_header.dart';
+import 'package:soulnest/presentation/screens/home_screen/widgets/home_recent_activites.dart';
 
 void main() {
   runApp(const HomeScreen());
@@ -14,6 +15,7 @@ class HomeScreen extends StatelessWidget {
       body: Column(
         children: [
           HomeHeader(),
+          RecentActivities(),
         ],
       ),
     );

@@ -16,12 +16,12 @@ class SignUp extends StatelessWidget {
           onPressed: () {
             Navigator.pushNamed(context, "/sign-up");
           },
-          child: const Text(
+          child: Text(
             "Sign up",
-            style: TextStyle(
+            style: Theme.of(context).textTheme.bodyLarge?.copyWith(
+                color: const Color.fromARGB(255, 0, 37, 68),
                 decoration: TextDecoration.underline,
-                fontWeight: FontWeight.w600,
-                color: Color.fromARGB(255, 0, 37, 68)),
+                fontWeight: FontWeight.bold),
           ),
         )
       ],
