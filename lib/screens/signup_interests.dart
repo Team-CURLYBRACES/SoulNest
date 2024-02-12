@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:soulnest/models/checkbox_state.dart';
 
 class SignUp_Interests extends StatefulWidget {
   const SignUp_Interests({super.key});
@@ -8,7 +9,14 @@ class SignUp_Interests extends StatefulWidget {
 }
 
 class _MyWidgetState extends State<SignUp_Interests> {
-  bool value = false;
+
+  final notifications = [
+    CheckBoxState(title: 'Music'),
+    CheckBoxState(title: 'Journaling'),
+    CheckBoxState(title: 'Meditation'),
+    CheckBoxState(title: 'Sports'),
+    CheckBoxState(title: 'Yoga'),
+  ];
 
   @override
   Widget build(BuildContext context) {
@@ -44,16 +52,20 @@ class _MyWidgetState extends State<SignUp_Interests> {
 
           const SizedBox(height: 30),
           // checkboxes
-          Checkbox(
-            activeColor: Color.fromARGB(255, 0, 83, 145),
-            value: value,
-            onChanged: (value) =>setState(()=> this.value = value!),
-              
-            )
-
-          // previous and next buttons
+          ...notifications.map(buildSingleCheckbox).toList(),
+           // previous and next buttons
         ],
       ),
     ));
   }
+
+  Widget buildSingleCheckbox(CheckBoxState checkbox) => CheckboxListTile(
+        controlAffinity: ListTileControlAffinity.leading,
+        activeColor: Color.fromARGB(255, 0, 83, 145),
+        value: checkbox.value,
+        title: Text(
+          checkbox.title,
+        ),
+        onChanged: (value) => setState(() => checkbox.value = value!),
+      );
 }
