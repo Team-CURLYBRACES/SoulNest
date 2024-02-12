@@ -10,10 +10,20 @@ class HomeScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: const Text("Home Screen"),
-      ),
-      body: const Center(child: Text("Home Screen")),
-    );
+        body: Column(
+      children: [
+        Container(
+          width: double.infinity,
+          height: 250,
+          decoration: BoxDecoration(color: Colors.blue),
+        ),
+        Placeholder(
+          fallbackHeight: 250,
+        ),
+        Placeholder(
+          fallbackHeight: 250,
+        )
+      ],
+    ));
   }
 }
