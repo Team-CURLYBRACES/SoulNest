@@ -1,6 +1,7 @@
 // ignore_for_file: deprecated_member_use
 
 import 'package:flutter/material.dart';
+import 'package:soulnest/presentation/screens/counselor_profile/counselor_profile.dart';
 import 'package:soulnest/presentation/screens/home_screen/home_screen.dart';
 import 'package:soulnest/presentation/screens/login_screen/login_screen.dart';
 import 'package:soulnest/presentation/screens/sign_up_screen/sign_up_screen.dart';
@@ -41,7 +42,8 @@ class App extends StatelessWidget {
       routes: {
         "/home": (context) => const HomeScreen(),
         "/login": (context) => const LoginScreen(),
-        "/sign-up": (context) => const SignUpScreen()
+        "/sign-up": (context) => const SignUpScreen(),
+        "/counselor-profile": (context) => const CounselorProfile()
       },
     );
   }

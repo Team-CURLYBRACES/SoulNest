@@ -19,6 +19,9 @@ class _HomeScreenState extends State<HomeScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       bottomNavigationBar: BottomNavigationBar(
+        onTap: (int index) {
+          Navigator.pushNamed(context, '/counselor-profile');
+        },
         backgroundColor: const Color.fromRGBO(0, 83, 145, 1),
         items: const <BottomNavigationBarItem>[
           BottomNavigationBarItem(
