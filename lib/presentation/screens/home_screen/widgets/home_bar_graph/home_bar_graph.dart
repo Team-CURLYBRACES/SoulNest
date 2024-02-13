@@ -19,45 +19,40 @@ class BarGraph extends StatelessWidget {
     );
 
     bardData.inisializedBarData();
-    return Stack(
-      children: [
-        BarChart(
-          BarChartData(
-            maxY: 60,
-            minY: 0,
-            gridData: const FlGridData(show: false),
-            borderData: FlBorderData(show: false),
-            titlesData: const FlTitlesData(
-              show: true,
-              topTitles: AxisTitles(sideTitles: SideTitles(showTitles: false)),
-              rightTitles:
-                  AxisTitles(sideTitles: SideTitles(showTitles: false)),
-              bottomTitles: AxisTitles(
-                sideTitles: SideTitles(
-                  showTitles: true,
-                  getTitlesWidget: getBottomTitles,
-                ),
-              ),
+    return BarChart(
+      BarChartData(
+        maxY: 60,
+        minY: 0,
+        gridData: const FlGridData(show: false),
+        borderData: FlBorderData(show: false),
+        titlesData: const FlTitlesData(
+          show: true,
+          topTitles: AxisTitles(sideTitles: SideTitles(showTitles: false)),
+          rightTitles: AxisTitles(sideTitles: SideTitles(showTitles: false)),
+          bottomTitles: AxisTitles(
+            sideTitles: SideTitles(
+              showTitles: true,
+              getTitlesWidget: getBottomTitles,
             ),
-            barGroups: bardData.barData
-                .map(
-                  (data) => BarChartGroupData(x: data.x, barRods: [
-                    BarChartRodData(
-                      toY: data.y,
-                      color: const Color.fromRGBO(1, 83, 145, 1),
-                      width: 14,
-                      backDrawRodData: BackgroundBarChartRodData(
-                        show: true,
-                        toY: 60,
-                        color: const Color.fromRGBO(223, 237, 245, 100),
-                      ),
-                    ),
-                  ]),
-                )
-                .toList(),
           ),
         ),
-      ],
+        barGroups: bardData.barData
+            .map(
+              (data) => BarChartGroupData(x: data.x, barRods: [
+                BarChartRodData(
+                  toY: data.y,
+                  color: const Color.fromRGBO(1, 83, 145, 1),
+                  width: 14,
+                  backDrawRodData: BackgroundBarChartRodData(
+                    show: true,
+                    toY: 60,
+                    color: const Color.fromRGBO(223, 237, 245, 100),
+                  ),
+                ),
+              ]),
+            )
+            .toList(),
+      ),
     );
   }
 }
