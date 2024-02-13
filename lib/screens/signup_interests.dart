@@ -22,12 +22,16 @@ class _MyWidgetState extends State<SignUp_Interests> {
   Widget build(BuildContext context) {
     return Scaffold(
         body: Center(
+          child: Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 20),
       child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
+        crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           // logo
-          Image.asset('assets/logo.png'),
-
+          Center(
+          child: Image.asset('assets/logo.png'),),
+  
           const SizedBox(height: 56),
           // title
           const Text(
@@ -50,13 +54,20 @@ class _MyWidgetState extends State<SignUp_Interests> {
             ),
           ),
 
-          const SizedBox(height: 30),
+          const SizedBox(height: 25),
           // checkboxes
           ...notifications.map(buildSingleCheckbox).toList(),
-           // previous and next buttons
+
+          const SizedBox(height: 10),
+          // previous and next buttons
+          TextButton(
+            onPressed: (){}, 
+            child: Text("Next")),
         ],
       ),
-    ));
+      
+    ))
+    );
   }
 
   Widget buildSingleCheckbox(CheckBoxState checkbox) => CheckboxListTile(
