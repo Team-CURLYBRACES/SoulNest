@@ -23,7 +23,7 @@ class _MyWidgetState extends State<SignUp_Interests> {
     return Scaffold(
         body: Center(
           child: Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 20),
+            padding: const EdgeInsets.symmetric(horizontal: 34),
       child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         crossAxisAlignment: CrossAxisAlignment.start,
@@ -61,8 +61,17 @@ class _MyWidgetState extends State<SignUp_Interests> {
           const SizedBox(height: 10),
           // previous and next buttons
           TextButton(
+            style: TextButton.styleFrom(
+              backgroundColor: Color.fromARGB(255, 0, 83, 145),
+            ),
             onPressed: (){}, 
-            child: Text("Next")),
+            child: Text(
+              "Next",
+            style: TextStyle(color: Colors.white),
+            ),
+            
+            ),
+            
         ],
       ),
       
