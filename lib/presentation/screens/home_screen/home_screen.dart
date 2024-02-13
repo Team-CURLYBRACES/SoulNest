@@ -7,24 +7,30 @@ void main() {
   runApp(const HomeScreen());
 }
 
-class HomeScreen extends StatelessWidget {
+class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
 
+  @override
+  State<HomeScreen> createState() => _HomeScreenState();
+}
+
+class _HomeScreenState extends State<HomeScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       bottomNavigationBar: BottomNavigationBar(
+        backgroundColor: const Color.fromRGBO(0, 83, 145, 1),
         items: const <BottomNavigationBarItem>[
           BottomNavigationBarItem(
-            icon: Icon(Icons.home),
+            icon: Icon(Icons.home, color: Colors.white),
             label: 'Home',
           ),
           BottomNavigationBarItem(
-            icon: Icon(Icons.chat),
+            icon: Icon(Icons.chat, color: Colors.white),
             label: 'Chat',
           ),
           BottomNavigationBarItem(
-            icon: Icon(Icons.man_3_sharp),
+            icon: Icon(Icons.man_3_sharp, color: Colors.white),
             label: 'Profile',
           ),
         ],
