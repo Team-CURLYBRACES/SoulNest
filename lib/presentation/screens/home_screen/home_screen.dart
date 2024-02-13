@@ -22,7 +22,7 @@ class _HomeScreenState extends State<HomeScreen> {
         onTap: (int index) {
           Navigator.pushNamed(context, '/counselor-profile');
         },
-        backgroundColor: const Color.fromRGBO(0, 83, 145, 1),
+        backgroundColor: const Color.fromARGB(255, 32, 158, 255),
         items: const <BottomNavigationBarItem>[
           BottomNavigationBarItem(
             icon: Icon(Icons.home, color: Colors.white),
