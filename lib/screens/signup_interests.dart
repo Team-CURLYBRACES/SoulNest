@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:soulnest/components/next_button.dart';
 import 'package:soulnest/models/checkbox_state.dart';
 
 class SignUp_Interests extends StatefulWidget {
@@ -60,17 +61,9 @@ class _MyWidgetState extends State<SignUp_Interests> {
 
           const SizedBox(height: 10),
           // previous and next buttons
-          TextButton(
-            style: TextButton.styleFrom(
-              backgroundColor: Color.fromARGB(255, 0, 83, 145),
-            ),
-            onPressed: (){}, 
-            child: Text(
-              "Next",
-            style: TextStyle(color: Colors.white),
-            ),
-            
-            ),
+          NextButton(
+            onTap:{}{}, 
+            child: Text("Next")),
             
         ],
       ),
