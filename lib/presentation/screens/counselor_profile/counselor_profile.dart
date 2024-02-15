@@ -1,86 +1,75 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/svg.dart';
 
 class CounselorProfile extends StatelessWidget {
   const CounselorProfile({super.key});
 
   @override
   Widget build(BuildContext context) {
+    Size size = MediaQuery.of(context).size;
     return Scaffold(
-      body: SizedBox(
-        width: double.infinity,
-        height: double.infinity,
-        child: Stack(
-          children: [
-            Container(
-              height: 287,
-              decoration: const BoxDecoration(
+      body: Stack(
+        children: [
+          Container(
+            height: 287,
+            width: double.infinity,
+            decoration: const BoxDecoration(
                 gradient: LinearGradient(
-                  begin: Alignment.bottomCenter,
-                  end: Alignment.topCenter,
-                  colors: [
-                    Color.fromRGBO(27, 143, 199, 1),
-                    Color.fromRGBO(1, 32, 111, 1),
-                  ],
-                ),
-              ),
-            ),
-            Padding(
-              padding: const EdgeInsets.symmetric(vertical: 80, horizontal: 20),
+              begin: Alignment.topCenter,
+              end: Alignment.bottomCenter,
+              colors: [
+                Color.fromRGBO(0, 32, 111, 1),
+                Color.fromRGBO(27, 143, 199, 1)
+              ],
+            )),
+          ),
+          Positioned(
+              top: size.height * 0.068,
               child: Row(
                 children: [
-                  GestureDetector(
-                    onTap: () {
-                      Navigator.pop(context);
-                    },
-                    child: Container(
-                      width: 50,
-                      height: 50,
-                      decoration: const BoxDecoration(
-                        shape: BoxShape.circle,
-                        color: Color.fromRGBO(2, 57, 127, 38),
+                  Stack(
+                    children: [
+                      Positioned(
+                        child: Container(
+                          height: 50,
+                          width: size.width,
+                          alignment: Alignment.center,
+                          child: Text(
+                            "Counsellor",
+                            style: Theme.of(context)
+                                .textTheme
+                                .headlineSmall
+                                ?.copyWith(
+                                  color: Colors.white,
+                                  fontSize: 23,
+                                ),
+                          ),
+                        ),
                       ),
-                      child: Image.asset("assets/images/backArrow.png"),
-                    ),
+                      Positioned(
+                        left: size.height * 0.028,
+                        child: Container(
+                          width: 50,
+                          height: 50,
+                          decoration: BoxDecoration(
+                            borderRadius: BorderRadius.circular(100),
+                            color: const Color.fromRGBO(2, 57, 127, 0.38),
+                          ),
+                          child: IconButton(
+                            alignment: Alignment.center,
+                            icon: Image.asset("assets/images/left.png"),
+                            color: Colors.white,
+                            onPressed: () {
+                              Navigator.pop(context);
+                            },
+                          ),
+                        ),
+                      ),
+                    ],
                   )
                 ],
-              ),
-            ),
-            Container(
-              alignment: Alignment.topCenter,
-              padding: const EdgeInsets.symmetric(vertical: 90),
-              child: Text(
-                "Counselor",
-                style: Theme.of(context).textTheme.headlineMedium?.copyWith(
-                      color: Colors.white,
-                      fontSize: 20,
-                    ),
-              ),
-            ),
-            Positioned(
-              top: 210,
-              left: 125,
-              child: Container(
-                width: 140,
-                height: 140,
-                alignment: Alignment.bottomCenter,
-                decoration: const BoxDecoration(
-                  shape: BoxShape.circle,
-                  color: Colors.white,
-                  border: Border.fromBorderSide(
-                    BorderSide(
-                      color: Color.fromRGBO(189, 218, 255, 0.855),
-                      width: 5,
-                    ),
-                  ),
-                  image: DecorationImage(
-                    image: AssetImage("assets/images/avator.jpg"),
-                    fit: BoxFit.cover,
-                  ),
-                ),
-              ),
-            )
-          ],
-        ),
+              )),
+        ],
       ),
     );
   }
