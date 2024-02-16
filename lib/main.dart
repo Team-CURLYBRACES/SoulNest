@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:soulnest/presentation/screens/counselor_profile/counselor_profile.dart';
 import 'package:soulnest/presentation/screens/home_screen/home_screen.dart';
 import 'package:soulnest/presentation/screens/login_screen/login_screen.dart';
+import 'package:soulnest/presentation/screens/profile_screen/profile_screen.dart';
 import 'package:soulnest/presentation/screens/sign_up_screen/sign_up_screen.dart';
 
 void main() {
@@ -43,7 +44,8 @@ class App extends StatelessWidget {
         "/home": (context) => const HomeScreen(),
         "/login": (context) => const LoginScreen(),
         "/sign-up": (context) => const SignUpScreen(),
-        "/counselor-profile": (context) => const CounselorProfile()
+        "/counselor-profile": (context) => const CounselorProfile(),
+        "/user-profile": (context) => const ProfilePage()
       },
     );
   }

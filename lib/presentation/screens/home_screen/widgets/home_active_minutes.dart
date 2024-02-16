@@ -43,7 +43,7 @@ class _ActiveMinutesState extends State<ActiveMinutes> {
               color: const Color.fromARGB(255, 255, 255, 255),
               borderRadius: BorderRadius.circular(10),
             ),
-            padding: const EdgeInsets.all(10),
+            padding: const EdgeInsets.all(0),
             height: 180,
             child: BarGraph(
               weeklySummary: weeklySummary,

@@ -12,19 +12,23 @@ class CounselorProfile extends StatelessWidget {
         children: [
           Stack(
             children: [
-              Container(
-                height: 287,
-                width: double.infinity,
-                decoration: const BoxDecoration(
-                  gradient: LinearGradient(
-                    begin: Alignment.topCenter,
-                    end: Alignment.bottomCenter,
-                    colors: [
-                      Color.fromRGBO(0, 32, 111, 1),
-                      Color.fromRGBO(27, 143, 199, 1)
-                    ],
+              Stack(
+                children: [
+                  Container(
+                    height: 287,
+                    width: double.infinity,
+                    decoration: const BoxDecoration(
+                      gradient: LinearGradient(
+                        begin: Alignment.topCenter,
+                        end: Alignment.bottomCenter,
+                        colors: [
+                          Color.fromRGBO(0, 32, 111, 1),
+                          Color.fromRGBO(27, 143, 199, 1)
+                        ],
+                      ),
+                    ),
                   ),
-                ),
+                ],
               ),
               Positioned(
                 top: size.height * 0.068,
@@ -77,17 +81,32 @@ class CounselorProfile extends StatelessWidget {
           ),
           Positioned(
             top: 257,
-            child: Container(
-              width: size.width,
-              height: size.height,
-              decoration: const BoxDecoration(
-                color: Colors.white,
-                borderRadius: BorderRadius.only(
-                    topLeft: Radius.circular(30),
-                    topRight: Radius.circular(30)),
-              ),
+            child: Stack(
+              children: [
+                Container(
+                  width: size.width,
+                  height: size.height,
+                  decoration: const BoxDecoration(
+                    color: Colors.white,
+                    borderRadius: BorderRadius.only(
+                        topLeft: Radius.circular(30),
+                        topRight: Radius.circular(30)),
+                  ),
+                ),
+                Positioned(
+                  top: -size.height * 0.05,
+                  child: Container(
+                    width: 140,
+                    height: 140,
+                    decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(100),
+                      color: Colors.black,
+                    ),
+                  ),
+                ),
+              ],
             ),
-          )
+          ),
         ],
       ),
     );
