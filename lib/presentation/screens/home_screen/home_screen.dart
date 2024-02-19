@@ -20,7 +20,7 @@ class _HomeScreenState extends State<HomeScreen> {
     return Scaffold(
       bottomNavigationBar: BottomNavigationBar(
         onTap: (int index) {
-          Navigator.pushNamed(context, '/user-profile');
+          Navigator.pushNamed(context, '/therapy-exercises');
         },
         backgroundColor: const Color.fromARGB(255, 32, 158, 255),
         items: const <BottomNavigationBarItem>[
