@@ -12,7 +12,7 @@ class TherapyExercisesPage extends StatelessWidget {
       body: SingleChildScrollView(
         child: Column(
           children: [
-            Header(
+            SmallHeader(
               title: 'Therapy Exercises',
             ),
             ImageBox(),

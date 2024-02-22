@@ -13,7 +13,7 @@ class ProfilePage extends StatelessWidget {
       body: SingleChildScrollView(
         child: Column(
           children: [
-            Header(
+            SmallHeader(
               title: "Profile",
             ),
             ProfileDetails(),
