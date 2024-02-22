@@ -35,7 +35,8 @@ class HomeHeader extends StatelessWidget {
                       width: 55,
                       height: 55,
                       child: CircleAvatar(
-                        backgroundImage: AssetImage("assets/images/avator.jpg"),
+                        backgroundImage:
+                            AssetImage("assets/images/profile.png"),
                       ),
                     ),
                     SizedBox(
