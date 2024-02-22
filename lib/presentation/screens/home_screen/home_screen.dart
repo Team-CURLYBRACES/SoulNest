@@ -58,10 +58,10 @@ class _HomeScreenState extends State<HomeScreen> {
             ),
             NavigationDestination(
               selectedIcon: Icon(
-                Icons.notification_add_outlined,
+                Icons.group_add_outlined,
               ),
               icon: Icon(
-                Icons.notification_add,
+                Icons.group_add,
                 color: Color.fromARGB(255, 255, 255, 255),
               ),
               label: "Therapists",
