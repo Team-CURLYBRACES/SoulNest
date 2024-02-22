@@ -49,6 +49,7 @@ class _HomeScreenState extends State<HomeScreen> {
             NavigationDestination(
               selectedIcon: Icon(
                 Icons.home_outlined,
+                color: Colors.white,
               ),
               icon: Icon(
                 Icons.home,
@@ -59,6 +60,7 @@ class _HomeScreenState extends State<HomeScreen> {
             NavigationDestination(
               selectedIcon: Icon(
                 Icons.group_add_outlined,
+                color: Colors.white,
               ),
               icon: Icon(
                 Icons.group_add,
@@ -69,6 +71,7 @@ class _HomeScreenState extends State<HomeScreen> {
             NavigationDestination(
               selectedIcon: Icon(
                 Icons.chat_bubble_outline,
+                color: Colors.white,
               ),
               icon: Icon(
                 Icons.chat_bubble,
@@ -79,6 +82,7 @@ class _HomeScreenState extends State<HomeScreen> {
             NavigationDestination(
               selectedIcon: Icon(
                 Icons.interests_outlined,
+                color: Colors.white,
               ),
               icon: Icon(
                 Icons.interests,
