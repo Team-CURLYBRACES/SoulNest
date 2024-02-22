@@ -1,11 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:soulnest/presentation/screens/home_screen/widgets/home_active_minutes.dart';
-import 'package:soulnest/presentation/screens/home_screen/widgets/home_header.dart';
-import 'package:soulnest/presentation/screens/home_screen/widgets/home_recent_activites.dart';
-
-void main() {
-  runApp(const HomeScreen());
-}
+import 'package:flutter_svg/svg.dart';
+import 'package:soulnest/presentation/screens/chatbot_screen/chatbot_screen.dart';
+import 'package:soulnest/presentation/screens/find_therapists_screen/find_therapists_screen.dart';
+import 'package:soulnest/presentation/screens/home_screen/widgets/home_screen_widget.dart';
+import 'package:soulnest/presentation/screens/profile_screen/profile_screen.dart';
+import 'package:soulnest/presentation/screens/therapy_exercises_screen/therapy_exercises_screen.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
@@ -15,36 +14,73 @@ class HomeScreen extends StatefulWidget {
 }
 
 class _HomeScreenState extends State<HomeScreen> {
+  int index = 0;
+  final screens = [
+    const HomeScreenWidget(),
+    const FindTherapists(),
+    const ChatbotScreen(),
+    const TherapyExercisesPage(),
+    const ProfilePage(),
+  ];
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      bottomNavigationBar: BottomNavigationBar(
-        onTap: (int index) {
-          Navigator.pushNamed(context, '/therapy-exercises');
-        },
-        backgroundColor: const Color.fromARGB(255, 32, 158, 255),
-        items: const <BottomNavigationBarItem>[
-          BottomNavigationBarItem(
-            icon: Icon(Icons.home, color: Colors.white),
-            label: 'Home',
+      bottomNavigationBar: NavigationBarTheme(
+        data: NavigationBarThemeData(
+          height: 83,
+          backgroundColor:
+              Theme.of(context).bottomNavigationBarTheme.backgroundColor,
+          indicatorColor: Colors.transparent,
+          labelTextStyle: MaterialStateProperty.all(
+            const TextStyle(
+              color: Colors.white,
+              fontWeight: FontWeight.w600,
+            ),
           ),
-          BottomNavigationBarItem(
-            icon: Icon(Icons.chat, color: Colors.white),
-            label: 'Chat',
-          ),
-          BottomNavigationBarItem(
-            icon: Icon(Icons.man_3_sharp, color: Colors.white),
-            label: 'Profile',
-          ),
-        ],
+        ),
+        child: NavigationBar(
+          onDestinationSelected: (index) => {
+            setState(
+              () => this.index = index,
+            )
+          },
+          destinations: const [
+            NavigationDestination(
+              icon: Icon(
+                Icons.home,
+              ),
+              label: "Home",
+            ),
+            NavigationDestination(
+              icon: Icon(
+                Icons.notification_add,
+              ),
+              label: "Therapists",
+            ),
+            NavigationDestination(
+              icon: Icon(
+                Icons.chat_bubble,
+              ),
+              label: "chatbot",
+            ),
+            NavigationDestination(
+              icon: Icon(
+                Icons.interests,
+              ),
+              label: "Exercises",
+            ),
+            NavigationDestination(
+              icon: Icon(
+                Icons.headphones,
+              ),
+              label: "Profile",
+            ),
+          ],
+          labelBehavior: NavigationDestinationLabelBehavior.alwaysShow,
+        ),
       ),
-      body: const Column(
-        children: [
-          HomeHeader(),
-          RecentActivities(),
-          ActiveMinutes(),
-        ],
-      ),
+      body: screens[index],
     );
   }
 }

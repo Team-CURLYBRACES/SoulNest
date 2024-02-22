@@ -21,17 +21,6 @@ class ExerciseBoxes extends StatelessWidget {
                     ?.copyWith(fontSize: 20, fontWeight: FontWeight.w600),
               ),
             ),
-            GridView.count(
-              crossAxisCount: 2,
-              children: [
-                Expanded(
-                  child: Container(
-                    color: Colors.blue,
-                    height: 300,
-                  ),
-                ),
-              ],
-            )
           ],
         ),
       ),

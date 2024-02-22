@@ -38,12 +38,10 @@ class _ActiveMinutesState extends State<ActiveMinutes> {
             ),
           ),
           Container(
-            margin: const EdgeInsets.only(top: 20),
+            margin: const EdgeInsets.only(top: 30, bottom: 30),
             decoration: BoxDecoration(
-              color: const Color.fromARGB(255, 255, 255, 255),
               borderRadius: BorderRadius.circular(10),
             ),
-            padding: const EdgeInsets.all(0),
             height: 180,
             child: BarGraph(
               weeklySummary: weeklySummary,

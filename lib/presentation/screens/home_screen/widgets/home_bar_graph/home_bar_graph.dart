@@ -46,7 +46,7 @@ class BarGraph extends StatelessWidget {
                   backDrawRodData: BackgroundBarChartRodData(
                     show: true,
                     toY: 60,
-                    color: const Color.fromRGBO(223, 237, 245, 100),
+                    color: const Color.fromARGB(156, 188, 217, 235),
                   ),
                 ),
               ]),
@@ -59,7 +59,10 @@ class BarGraph extends StatelessWidget {
 
 Widget getBottomTitles(double value, TitleMeta meta) {
   const style = TextStyle(
-      color: Colors.black54, fontWeight: FontWeight.bold, fontSize: 12);
+    color: Colors.black54,
+    fontWeight: FontWeight.bold,
+    fontSize: 12,
+  );
 
   Widget text;
   switch (value.toInt()) {
