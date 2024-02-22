@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/svg.dart';
 import 'package:soulnest/presentation/screens/chatbot_screen/chatbot_screen.dart';
 import 'package:soulnest/presentation/screens/find_therapists_screen/find_therapists_screen.dart';
 import 'package:soulnest/presentation/screens/home_screen/widgets/home_screen_widget.dart';
@@ -38,46 +37,66 @@ class _HomeScreenState extends State<HomeScreen> {
               fontWeight: FontWeight.w600,
             ),
           ),
+          labelBehavior: NavigationDestinationLabelBehavior.onlyShowSelected,
         ),
         child: NavigationBar(
-          onDestinationSelected: (index) => {
-            setState(
-              () => this.index = index,
-            )
-          },
+          animationDuration: const Duration(milliseconds: 600),
+          selectedIndex: index,
+          onDestinationSelected: (index) => setState(
+            () => this.index = index,
+          ),
           destinations: const [
             NavigationDestination(
+              selectedIcon: Icon(
+                Icons.home_outlined,
+              ),
               icon: Icon(
                 Icons.home,
+                color: Color.fromARGB(255, 255, 255, 255),
               ),
               label: "Home",
             ),
             NavigationDestination(
+              selectedIcon: Icon(
+                Icons.notification_add_outlined,
+              ),
               icon: Icon(
                 Icons.notification_add,
+                color: Color.fromARGB(255, 255, 255, 255),
               ),
               label: "Therapists",
             ),
             NavigationDestination(
+              selectedIcon: Icon(
+                Icons.chat_bubble_outline,
+              ),
               icon: Icon(
                 Icons.chat_bubble,
+                color: Color.fromARGB(255, 255, 255, 255),
               ),
               label: "chatbot",
             ),
             NavigationDestination(
+              selectedIcon: Icon(
+                Icons.interests_outlined,
+              ),
               icon: Icon(
                 Icons.interests,
+                color: Color.fromARGB(255, 255, 255, 255),
               ),
               label: "Exercises",
             ),
             NavigationDestination(
-              icon: Icon(
-                Icons.headphones,
+              icon: SizedBox(
+                height: 30,
+                child: CircleAvatar(
+                  backgroundColor: Colors.transparent,
+                  backgroundImage: AssetImage('assets/images/profile.png'),
+                ),
               ),
               label: "Profile",
             ),
           ],
-          labelBehavior: NavigationDestinationLabelBehavior.alwaysShow,
         ),
       ),
       body: screens[index],
