@@ -46,12 +46,16 @@ class ExerciseBoxes extends StatelessWidget {
           GridView.builder(
             physics: const ScrollPhysics(),
             shrinkWrap: true,
+            padding: const EdgeInsets.symmetric(
+              horizontal: 10,
+              vertical: 10,
+            ),
             gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
               crossAxisCount: 2,
               mainAxisSpacing: 15,
               crossAxisSpacing: 15,
+              childAspectRatio: 0.9,
             ),
-            padding: const EdgeInsets.all(8.0),
             itemCount: items.length,
             itemBuilder: (context, index) {
               return Container(
