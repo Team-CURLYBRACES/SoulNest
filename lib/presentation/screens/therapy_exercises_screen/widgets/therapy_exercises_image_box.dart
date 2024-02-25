@@ -9,7 +9,7 @@ class ImageBox extends StatelessWidget {
       padding: const EdgeInsets.only(top: 30, left: 30, right: 30),
       child: SizedBox(
         width: 367,
-        height: 130,
+        height: 150,
         child: Stack(
           children: [
             Container(
@@ -26,7 +26,7 @@ class ImageBox extends StatelessWidget {
             ),
             Container(
               width: 367,
-              height: 130,
+              height: 150,
               padding: const EdgeInsets.symmetric(horizontal: 18, vertical: 20),
               alignment: Alignment.bottomLeft,
               decoration: BoxDecoration(
