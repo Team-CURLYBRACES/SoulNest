@@ -21,11 +21,11 @@ class ProfilePage extends StatelessWidget {
             children: const [
               ProfileDetails(),
               SizedBox(
-                height: 20,
+                height: 30,
               ),
               SheduledSessions(),
               SizedBox(
-                height: 20,
+                height: 30,
               ),
               StressOverView()
             ],

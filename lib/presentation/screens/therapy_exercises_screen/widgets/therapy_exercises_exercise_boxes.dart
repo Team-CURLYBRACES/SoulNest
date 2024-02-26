@@ -16,63 +16,47 @@ class ExerciseBoxes extends StatelessWidget {
           text: "Meditation", imagePath: "assets/images/meditation.png"),
       ExerciseItem(
           text: "Yoga Exercises", imagePath: "assets/images/jouraling.jpg"),
-      ExerciseItem(text: "Take a walk", imagePath: "assets/world_image.png"),
-      ExerciseItem(text: "Journaling", imagePath: "assets/world_image.png"),
-      ExerciseItem(text: "world", imagePath: "assets/world_image.png"),
-      ExerciseItem(text: "world", imagePath: "assets/world_image.png"),
+      ExerciseItem(
+          text: "Listen to Music", imagePath: "assets/images/music.jpg"),
+      ExerciseItem(
+          text: "Draw Mandel arts", imagePath: "assets/images/mandala_art.png"),
+      ExerciseItem(
+          text: "Meditation", imagePath: "assets/images/meditation.png"),
+      ExerciseItem(
+          text: "Yoga Exercises", imagePath: "assets/images/jouraling.jpg"),
     ];
 
-    return Padding(
-      padding: const EdgeInsets.only(left: 20, right: 20, top: 30),
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 10),
-            child: SizedBox(
-              width: 285,
-              child: Text(
-                "Let's do some mind relaxing exerciese",
-                style: Theme.of(context)
-                    .textTheme
-                    .displayMedium
-                    ?.copyWith(fontSize: 20, fontWeight: FontWeight.w600),
+    return Expanded(
+      child: Padding(
+        padding: const EdgeInsets.only(left: 20, right: 20, top: 10),
+        child: GridView.builder(
+          physics: const ScrollPhysics(),
+          shrinkWrap: true,
+          padding: const EdgeInsets.symmetric(
+            horizontal: 10,
+            vertical: 10,
+          ),
+          gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+            crossAxisCount: 2,
+            mainAxisSpacing: 15,
+            crossAxisSpacing: 15,
+          ),
+          itemCount: items.length,
+          itemBuilder: (context, index) {
+            return Container(
+              decoration: const BoxDecoration(
+                color: Colors.blue,
+                borderRadius: BorderRadius.all(
+                  Radius.circular(10),
+                ),
               ),
-            ),
-          ),
-          const SizedBox(
-            height: 20,
-          ),
-          GridView.builder(
-            physics: const ScrollPhysics(),
-            shrinkWrap: true,
-            padding: const EdgeInsets.symmetric(
-              horizontal: 10,
-              vertical: 10,
-            ),
-            gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-              crossAxisCount: 2,
-              mainAxisSpacing: 15,
-              crossAxisSpacing: 15,
-              childAspectRatio: 0.9,
-            ),
-            itemCount: items.length,
-            itemBuilder: (context, index) {
-              return Container(
-                decoration: const BoxDecoration(
-                  color: Colors.blue,
-                  borderRadius: BorderRadius.all(
-                    Radius.circular(10),
-                  ),
-                ),
-                child: Box(
-                  text: items[index].text,
-                  imagePath: items[index].imagePath,
-                ),
-              );
-            },
-          )
-        ],
+              child: Box(
+                text: items[index].text,
+                imagePath: items[index].imagePath,
+              ),
+            );
+          },
+        ),
       ),
     );
   }

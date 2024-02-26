@@ -119,7 +119,7 @@ class StressOverView extends StatelessWidget {
                       borderRadius: BorderRadius.circular(10),
                       border: Border.all(
                         color: const Color.fromARGB(61, 1, 83, 145),
-                        width: 0.5,
+                        width: 0.2,
                       ),
                     ),
                     padding: const EdgeInsets.all(0),

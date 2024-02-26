@@ -8,14 +8,24 @@ class TherapyExercisesPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const Scaffold(
+    return Scaffold(
       body: Column(
         children: [
-          SmallHeader(
+          const SmallHeader(
             title: 'Therapy Exercises',
           ),
-          ImageBox(),
-          ExerciseBoxes(),
+          const ImageBox(),
+          Container(
+            padding: const EdgeInsets.only(left: 30, right: 30, top: 20),
+            child: const Text(
+              "Let’s do some mind relaxing exercises",
+              style: TextStyle(
+                fontSize: 20,
+                fontWeight: FontWeight.bold,
+              ),
+            ),
+          ),
+          const ExerciseBoxes(),
         ],
       ),
     );
