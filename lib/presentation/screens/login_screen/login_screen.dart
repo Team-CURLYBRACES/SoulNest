@@ -23,18 +23,18 @@ class LoginScreen extends StatelessWidget {
                   crossAxisAlignment: CrossAxisAlignment.center,
                   children: [
                     SizedBox(
-                      height: 30,
+                      height: 40,
                     ),
                     Image(
-                      image: AssetImage("assets/logos/soulNest.png"),
-                      width: 100,
+                      image: AssetImage("assets/images/soulnest2.png"),
+                      width: 150,
                     ),
                     SizedBox(
                       height: 40,
                     ),
                     TitleText(),
                     SizedBox(
-                      height: 40,
+                      height: 50,
                     ),
                     InputFiled(
                       textFiledTitle: "Email address",
@@ -62,11 +62,11 @@ class LoginScreen extends StatelessWidget {
                     ),
                     SignUp(),
                     SizedBox(
-                      height: 20,
+                      height: 30,
                     ),
                     DividerOr(),
                     SizedBox(
-                      height: 20,
+                      height: 30,
                     ),
                     SignInLogos(),
                   ],

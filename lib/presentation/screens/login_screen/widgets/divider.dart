@@ -14,9 +14,9 @@ class DividerOr extends StatelessWidget {
           ),
         ),
         Padding(
-          padding: EdgeInsets.symmetric(horizontal: 20),
+          padding: EdgeInsets.symmetric(horizontal: 25),
           child: Text(
-            "OR",
+            "OR continue with",
             style: TextStyle(
               color: Colors.grey,
               fontSize: 14,
@@ -26,7 +26,7 @@ class DividerOr extends StatelessWidget {
         Expanded(
           child: Divider(
             color: Colors.grey,
-            thickness: 0.5,
+            thickness: 0.8,
           ),
         )
       ],

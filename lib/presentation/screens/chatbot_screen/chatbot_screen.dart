@@ -51,7 +51,7 @@ class ChatbotScreen extends StatelessWidget {
                             border: InputBorder.none,
                             hintText: "type something...",
                             prefixIcon: Icon(
-                              Icons.search,
+                              Icons.chat,
                               color: Colors.grey,
                             ),
                           ),
@@ -64,7 +64,7 @@ class ChatbotScreen extends StatelessWidget {
                           width: 40,
                           alignment: Alignment.center,
                           decoration: BoxDecoration(
-                            color: const Color.fromARGB(255, 242, 242, 242),
+                            color: Colors.grey[200],
                             borderRadius: BorderRadius.circular(100),
                           ),
                           child: const Icon(

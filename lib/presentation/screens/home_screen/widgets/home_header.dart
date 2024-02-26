@@ -51,10 +51,10 @@ class HomeHeader extends StatelessWidget {
                     ),
                   ],
                 ),
-                Icon(
-                  Icons.settings,
-                  color: Colors.white,
-                )
+                // Icon(
+                //   Icons.settings,
+                //   color: Colors.white,
+                // )
               ],
             ),
             const SizedBox(

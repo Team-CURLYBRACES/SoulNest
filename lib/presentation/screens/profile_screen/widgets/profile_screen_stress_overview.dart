@@ -31,7 +31,7 @@ class StressOverView extends StatelessWidget {
             ),
           ),
           SizedBox(
-            height: size.height * 0.011,
+            height: size.height * 0.03,
           ),
           Container(
             width: size.width * 0.88,

@@ -132,86 +132,91 @@ class TherapistBox extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Row(
-      children: [
-        const SizedBox(
-          width: 20,
-        ),
-        ClipRRect(
-          borderRadius: BorderRadius.circular(10),
-          child: Container(
-            height: 80,
-            width: 80,
-            decoration: const BoxDecoration(
-              color: Colors.white,
-            ),
-            child: Image.asset(
-              imageUrl,
-              fit: BoxFit.cover,
+    return GestureDetector(
+      onTap: () {
+        Navigator.pushNamed(context, '/counselor-profile');
+      },
+      child: Row(
+        children: [
+          const SizedBox(
+            width: 20,
+          ),
+          ClipRRect(
+            borderRadius: BorderRadius.circular(10),
+            child: Container(
+              height: 80,
+              width: 80,
+              decoration: const BoxDecoration(
+                color: Colors.white,
+              ),
+              child: Image.asset(
+                imageUrl,
+                fit: BoxFit.cover,
+              ),
             ),
           ),
-        ),
-        const SizedBox(
-          width: 20,
-        ),
-        Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            Text(
-              name,
-              style: const TextStyle(
-                fontSize: 18,
-                fontWeight: FontWeight.w600,
+          const SizedBox(
+            width: 20,
+          ),
+          Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Text(
+                name,
+                style: const TextStyle(
+                  fontSize: 18,
+                  fontWeight: FontWeight.w600,
+                ),
               ),
-            ),
-            const SizedBox(
-              height: 5,
-            ),
-            const Text(
-              'Counselor',
-              style: TextStyle(
-                fontSize: 16,
-                color: Colors.grey,
+              const SizedBox(
+                height: 5,
               ),
-            ),
-            const SizedBox(
-              height: 8,
-            ),
-            Row(
-              children: [
-                const Icon(
-                  Icons.star,
-                  color: Color.fromRGBO(255, 213, 0, 1),
+              const Text(
+                'Counselor',
+                style: TextStyle(
+                  fontSize: 16,
+                  color: Colors.grey,
                 ),
-                const SizedBox(
-                  width: 5,
-                ),
-                Text(
-                  rating,
-                  style: const TextStyle(
-                      color: Color.fromRGBO(71, 71, 71, 1), fontSize: 14),
-                ),
-                const SizedBox(
-                  width: 10,
-                ),
-                const Text(
-                  '(100 reviews)',
-                  style: TextStyle(color: Colors.grey, fontSize: 14),
-                ),
-              ],
-            )
-          ],
-        ),
-        const Spacer(),
-        const Icon(
-          Icons.arrow_forward_ios,
-          color: Color.fromRGBO(0, 83, 145, 1),
-        ),
-        const SizedBox(
-          width: 20,
-        ),
-      ],
+              ),
+              const SizedBox(
+                height: 8,
+              ),
+              Row(
+                children: [
+                  const Icon(
+                    Icons.star,
+                    color: Color.fromRGBO(255, 213, 0, 1),
+                  ),
+                  const SizedBox(
+                    width: 5,
+                  ),
+                  Text(
+                    rating,
+                    style: const TextStyle(
+                        color: Color.fromRGBO(71, 71, 71, 1), fontSize: 14),
+                  ),
+                  const SizedBox(
+                    width: 10,
+                  ),
+                  const Text(
+                    '(100 reviews)',
+                    style: TextStyle(color: Colors.grey, fontSize: 14),
+                  ),
+                ],
+              )
+            ],
+          ),
+          const Spacer(),
+          const Icon(
+            Icons.arrow_forward_ios,
+            color: Color.fromRGBO(0, 83, 145, 1),
+          ),
+          const SizedBox(
+            width: 20,
+          ),
+        ],
+      ),
     );
   }
 }

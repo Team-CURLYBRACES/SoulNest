@@ -27,26 +27,24 @@ class InputFiled extends StatelessWidget {
           ],
         ),
         const SizedBox(
-          height: 7,
+          height: 10,
         ),
         TextField(
           obscureText: showText,
           decoration: InputDecoration(
-            filled: true,
-            fillColor: const Color.fromRGBO(240, 240, 240, 100),
-            hintText: inputText,
-            focusedBorder: const OutlineInputBorder(
-              borderSide: BorderSide(color: Colors.black54),
-            ),
-            border: const OutlineInputBorder(
-                borderRadius: BorderRadius.all(
-                  Radius.elliptical(5, 5),
+              filled: true,
+              fillColor: const Color.fromRGBO(240, 240, 240, 100),
+              hintText: inputText,
+              hintStyle: const TextStyle(
+                color: Color.fromRGBO(0, 0, 0, 0.5),
+              ),
+              border: OutlineInputBorder(
+                borderRadius: BorderRadius.circular(10),
+                borderSide: const BorderSide(
+                  color: Colors.transparent,
                 ),
-                borderSide: BorderSide(
-                  color: Colors.black26,
-                )),
-          ),
-        ),
+              )),
+        )
       ],
     );
   }
