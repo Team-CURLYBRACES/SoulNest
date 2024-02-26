@@ -9,24 +9,28 @@ class ProfilePage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const Scaffold(
-      body: SingleChildScrollView(
-        child: Column(
-          children: [
-            SmallHeader(
-              title: "Profile",
-            ),
-            ProfileDetails(),
-            SizedBox(
-              height: 20,
-            ),
-            SheduledSessions(),
-            SizedBox(
-              height: 20,
-            ),
-            StressOverView()
-          ],
-        ),
+    return Scaffold(
+      body: Column(
+        children: [
+          const SmallHeader(
+            title: "Profile",
+          ),
+          Expanded(
+              child: ListView(
+            padding: const EdgeInsets.symmetric(vertical: 20),
+            children: const [
+              ProfileDetails(),
+              SizedBox(
+                height: 20,
+              ),
+              SheduledSessions(),
+              SizedBox(
+                height: 20,
+              ),
+              StressOverView()
+            ],
+          ))
+        ],
       ),
     );
   }
