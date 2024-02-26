@@ -9,14 +9,19 @@ class HomeScreenWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const SingleChildScrollView(
-      child: Column(
-        children: [
-          HomeHeader(),
-          RecentActivities(),
-          ActiveMinutes(),
-        ],
-      ),
+    return Column(
+      children: [
+        const HomeHeader(),
+        Expanded(
+          child: ListView(
+            padding: const EdgeInsets.symmetric(horizontal: 0, vertical: 5),
+            children: const [
+              RecentActivities(),
+              ActiveMinutes(),
+            ],
+          ),
+        ),
+      ],
     );
   }
 }
