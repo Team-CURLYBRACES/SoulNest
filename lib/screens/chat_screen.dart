@@ -23,7 +23,13 @@ class ChatPage extends StatelessWidget {
           padding: EdgeInsets.fromLTRB(0, 10.0, 0, 0),
           child: Column(
             children: [
-              Text('ChatBot')
+              Text(
+                  'ChatBot',
+                style: TextStyle(
+                  color: Colors.white,
+                  fontWeight: FontWeight.bold
+                )
+              )
             ],
           ),
         )

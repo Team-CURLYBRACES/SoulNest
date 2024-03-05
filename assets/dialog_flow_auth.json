@@ -1,0 +1,13 @@
+{
+  "type": "service_account",
+  "project_id": "zenbot-yavq",
+  "private_key_id": "b3bbed84669b0dd999dc1e917a1f4e485c3db0ee",
+  "private_key": "-----BEGIN PRIVATE KEY-----\nMIIEvQIBADANBgkqhkiG9w0BAQEFAASCBKcwggSjAgEAAoIBAQDrW1/P0rd9TWHg\nZDkcQkdaDPZSUEj1jVcHSUkQ0HlBbEQTgjLHuIw9bcHzxvC6hLKav9vC3mvrpfO/\n700AthTEkmqP7A5MSF1WJa9lB6BVGQJ3oXV/4lyEXCE9x7AfomTGOkOMP7oIvxJi\n1q2IPAUqL2hOhkThMpUfBif1K37lL0eJyBBBFveCIWm83kTQGKJeXJDcFKu5AGZ+\njHKq3CtjcYg2Yr68UV22OKCtljNoMDVW+tUQ6YQ0g9780L4/76qEK3NmTUDh5vTo\nARV1CcbB9EaH1SWN8Tvoxs7olvZbH/vkj39hKwmvjclJhFbZ4EkoQaOCALiRMo8V\nxUQEvbwNAgMBAAECggEAPqm4a9PVqNX2jlEA56Y56x7yYl4f3sj/99+qRYDMGAAk\na/FJZeWb6SsU7bv1EiQMjakxcMPZhgdMS7kCDoNsKh41oxYdhG/r8ejctxB9vsqG\n3qUtbJwvN8pzy0gke3e4TxLqMygwdu2wjoJL967LTT0MD4QuSKs4CuePsfYfthMK\nyp08tvd3rahEHN7JzY+mT5Arbgw3BiEws/++7dweICj9AO1M8wJc17/3AgAjsnT3\nASapo+PXuSZ2cLNd7wUo2lxN1WWZ0dx5zV+0aZKvaGasm1rW6MFQK0zQl0rp2OeG\nBomUfDZKCgrv8kII7m5366ilTFwNwCvHyM3hc7HwHQKBgQD1krgwtkZDEzbFfNgZ\nldEMIdV3HzT5fxsxupnJcscnUWjoHb7hb9h6DvbhpbXQBP/1X9v4qAPmg4MEGgBM\n2GfnQhS7/qDtdD9DJ2LNH6djGc44dCE3Rf+ATLzSV0KXc1ZcydSc7xjO0iyd78Ne\nJH/XrvUz28rwYE1f61N36tFOxwKBgQD1WZvgemy5lME2kLQDo6g6kR2Vnonpcahs\n3aU90OmiDBcTANp5EweGrfMkCxof1Pg2mnJYCXPu/D/2YK6wi0wy8X8wJ4YTFnlD\nuDvISvObOwWpG8P6Mzmfm44afuFcMaM6SDtJpZIlQ4HMbJtSdfne70qw3PzXSNTA\nxSiZJ2paiwKBgG8/VTO0DyZpuOFESj1k8jvVw/df6sav/yjLCMoKtg+owKaOex9z\nZJT+3HaidDfVXALTtznxGzs9Dog4IzSswH0yIWR82HhZtiL837RfB5xMX3CRo05/\n5lw/5zY+k4s6k8AbKrchVZK0AcRWjqHCVSvnNWuVwVyds8+lMr3bYZCXAoGBANgN\nS82WIQ4fJzGUpWCbCjZguYuaq1lNxAHyAGP6BvKy8NLEKp75meQIZBa2TBAB632x\n7cUGtfeaW/zq0IoYcEZgER9nfpJqdOikYMiU8AYfKHHtSFuYJkMdqTo9xtf3wgQ9\nvS+yRIrZ8oAAl5o614lwcPZj86bktKz4MTME2YvXAoGAWjEbWbL3hYufu3SV4wn7\nCRt52HCY19C1/DJ+02GTC05P+++3Oe3SnX1teEW+sYzn+nkV3DpyPsdw3KLsFPvA\nhD74kt3gfH0LBXOb/0b6Tw6soyx8GrrKRj5nrPbUS4UuNhVgzn+5ETLuTcAkldey\nBXNTNzu4RBao6XIMrqwCkfs=\n-----END PRIVATE KEY-----\n",
+  "client_email": "zenbot@zenbot-yavq.iam.gserviceaccount.com",
+  "client_id": "101585955166000421959",
+  "auth_uri": "https://accounts.google.com/o/oauth2/auth",
+  "token_uri": "https://oauth2.googleapis.com/token",
+  "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
+  "client_x509_cert_url": "https://www.googleapis.com/robot/v1/metadata/x509/zenbot%40zenbot-yavq.iam.gserviceaccount.com",
+  "universe_domain": "googleapis.com"
+}
