@@ -1,6 +1,7 @@
 import 'package:dialog_flowtter/dialog_flowtter.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:soulnest/screens/message_bubble.dart';
 
 class ChatScreen extends StatefulWidget {
   const ChatScreen({super.key});
@@ -39,6 +40,8 @@ class _ChatScreenState extends State<ChatScreen> {
         child: Column(
           children: [
             // For the messages sent between bot and user
+            Expanded(child: MessageBubble(messages: messages,)),
+
             Container(
               child: Text('gyaaaattt'),
             ),
@@ -94,7 +97,9 @@ class _ChatScreenState extends State<ChatScreen> {
       return;
     }
     else {
-      addMessage(Message(text: DialogText(text: [text])));
+      setState(() {
+        addMessage(response.message!);
+      });
     }
   }
 
