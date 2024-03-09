@@ -1,87 +1,73 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 import 'package:soulnest/common/profile_screen_header.dart';
-import 'package:soulnest/presentation/screens/find_therapists_screen/models/therapist.dart';
+import 'package:soulnest/data/data.dart';
 
 class FindTherapists extends StatelessWidget {
   const FindTherapists({super.key});
 
   @override
   Widget build(BuildContext context) {
-    final List<Therapist> therapists = [
-      Therapist(
-          name: "Mr.Yohan",
-          imageUrl: "assets/images/Counselor1.png",
-          rating: "4.8"),
-      Therapist(
-          name: "Mrs.Wasana",
-          imageUrl: "assets/images/Counselor2.png",
-          rating: "4.9"),
-      Therapist(
-          name: "Mrs.Bhagya",
-          imageUrl: "assets/images/Counselor3.png",
-          rating: "4.4"),
-      Therapist(
-          name: "Mr.Shenal",
-          imageUrl: "assets/images/Counselor4.png",
-          rating: "4.2"),
-      Therapist(
-          name: "Mrs.Kanchana",
-          imageUrl: "assets/images/Counselor.jpg",
-          rating: "4.2"),
-    ];
-
-    return Scaffold(
-      body: Column(
-        children: [
-          const SmallHeader(
-            title: 'Therapists',
-          ),
-          Expanded(
-            child: Padding(
-              padding: const EdgeInsets.only(left: 20, right: 20, top: 20),
-              child: Column(
-                children: [
-                  searchField(),
-                  const SizedBox(
-                    height: 20,
-                  ),
-                  Expanded(
-                    child: ClipRRect(
-                      borderRadius: BorderRadius.circular(5),
-                      child: ListView.separated(
-                        separatorBuilder: (BuildContext context, int index) =>
-                            const SizedBox(
+    return Consumer<Data>(
+      builder: ((context, data, child) => Scaffold(
+            body: Column(
+              children: [
+                const SmallHeader(
+                  title: 'Therapists',
+                ),
+                Expanded(
+                  child: Padding(
+                    padding:
+                        const EdgeInsets.only(left: 20, right: 20, top: 20),
+                    child: Column(
+                      children: [
+                        searchField(),
+                        const SizedBox(
                           height: 20,
                         ),
-                        shrinkWrap: true,
-                        padding: const EdgeInsets.symmetric(
-                          vertical: 10,
+                        Expanded(
+                          child: ClipRRect(
+                            borderRadius: BorderRadius.circular(5),
+                            child: ListView.separated(
+                              separatorBuilder:
+                                  (BuildContext context, int index) =>
+                                      const SizedBox(
+                                height: 20,
+                              ),
+                              shrinkWrap: true,
+                              padding: const EdgeInsets.symmetric(
+                                vertical: 10,
+                              ),
+                              itemCount: data.therapists.length,
+                              itemBuilder: (BuildContext context, int index) {
+                                return GestureDetector(
+                                  onTap: () => data.setIndex(index),
+                                  child: Container(
+                                    decoration: const BoxDecoration(
+                                      color: Color.fromRGBO(236, 245, 249, 1),
+                                      borderRadius:
+                                          BorderRadius.all(Radius.circular(10)),
+                                    ),
+                                    height: 117,
+                                    child: TherapistBox(
+                                      name: data.therapists[index].name,
+                                      imageUrl: data.therapists[index].imageUrl,
+                                      rating: data.therapists[index].rating,
+                                      index: index,
+                                    ),
+                                  ),
+                                );
+                              },
+                            ),
+                          ),
                         ),
-                        itemCount: therapists.length,
-                        itemBuilder: (BuildContext context, int index) {
-                          return Container(
-                            decoration: const BoxDecoration(
-                              color: Color.fromRGBO(236, 245, 249, 1),
-                              borderRadius:
-                                  BorderRadius.all(Radius.circular(10)),
-                            ),
-                            height: 117,
-                            child: TherapistBox(
-                              name: therapists[index].name,
-                              imageUrl: therapists[index].imageUrl,
-                              rating: therapists[index].rating,
-                            ),
-                          );
-                        },
-                      ),
+                      ],
                     ),
                   ),
-                ],
-              ),
+                )
+              ],
             ),
-          )
-        ],
-      ),
+          )),
     );
   }
 
@@ -122,18 +108,21 @@ class TherapistBox extends StatelessWidget {
   final String name;
   final String imageUrl;
   final String rating;
+  final int index;
 
   const TherapistBox({
     super.key,
     required this.name,
     required this.imageUrl,
     required this.rating,
+    required this.index,
   });
 
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
       onTap: () {
+        Provider.of<Data>(context, listen: false).setIndex(index);
         Navigator.pushNamed(context, '/counselor-profile');
       },
       child: Row(
