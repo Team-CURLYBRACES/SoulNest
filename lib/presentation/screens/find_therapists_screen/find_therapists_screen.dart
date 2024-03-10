@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import 'package:soulnest/common/profile_screen_header.dart';
+import 'package:soulnest/presentation/common/profile_screen_header.dart';
 import 'package:soulnest/data/data.dart';
 
 class FindTherapists extends StatelessWidget {
