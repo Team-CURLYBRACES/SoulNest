@@ -2,9 +2,17 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:soulnest/presentation/common/profile_screen_header.dart';
 import 'package:soulnest/data/data.dart';
+import 'package:soulnest/presentation/screens/find_therapists_screen/models/therapist.dart';
 
-class FindTherapists extends StatelessWidget {
-  const FindTherapists({super.key});
+class FindTherapists extends StatefulWidget {
+  const FindTherapists({Key? key}) : super(key: key);
+
+  @override
+  State<FindTherapists> createState() => _FindTherapistsState();
+}
+
+class _FindTherapistsState extends State<FindTherapists> {
+  String _searchQuery = '';
 
   @override
   Widget build(BuildContext context) {
@@ -38,8 +46,10 @@ class FindTherapists extends StatelessWidget {
                               padding: const EdgeInsets.symmetric(
                                 vertical: 10,
                               ),
-                              itemCount: data.therapists.length,
+                              itemCount: filteredTherapists(data).length,
                               itemBuilder: (BuildContext context, int index) {
+                                final therapist =
+                                    filteredTherapists(data)[index];
                                 return GestureDetector(
                                   onTap: () => data.setIndex(index),
                                   child: Container(
@@ -50,10 +60,11 @@ class FindTherapists extends StatelessWidget {
                                     ),
                                     height: 117,
                                     child: TherapistBox(
-                                      name: data.therapists[index].name,
-                                      imageUrl: data.therapists[index].imageUrl,
-                                      rating: data.therapists[index].rating,
+                                      name: therapist.name,
+                                      imageUrl: therapist.imageUrl,
+                                      rating: therapist.rating,
                                       index: index,
+                                      occupation: therapist.occupation,
                                     ),
                                   ),
                                 );
@@ -71,6 +82,15 @@ class FindTherapists extends StatelessWidget {
     );
   }
 
+  List<Therapist> filteredTherapists(Data data) {
+    return data.therapists.where((therapist) {
+      final name = therapist.name.toLowerCase();
+      final occupation = therapist.occupation.toLowerCase();
+      final query = _searchQuery.toLowerCase();
+      return name.contains(query) || occupation.contains(query);
+    }).toList();
+  }
+
   Container searchField() {
     return Container(
       height: 60,
@@ -78,21 +98,26 @@ class FindTherapists extends StatelessWidget {
         color: const Color.fromRGBO(236, 245, 249, 1),
         borderRadius: BorderRadius.circular(30),
       ),
-      child: const Row(
+      child: Row(
         children: [
-          SizedBox(
+          const SizedBox(
             width: 20,
           ),
-          Icon(
+          const Icon(
             Icons.search,
             color: Color.fromRGBO(0, 83, 145, 1),
           ),
-          SizedBox(
+          const SizedBox(
             width: 20,
           ),
           Expanded(
             child: TextField(
-              decoration: InputDecoration(
+              onChanged: (value) {
+                setState(() {
+                  _searchQuery = value;
+                });
+              },
+              decoration: const InputDecoration(
                 border: InputBorder.none,
                 hintText: 'Search for therapists',
               ),
@@ -109,14 +134,16 @@ class TherapistBox extends StatelessWidget {
   final String imageUrl;
   final String rating;
   final int index;
+  final String occupation;
 
   const TherapistBox({
-    super.key,
+    Key? key,
     required this.name,
     required this.imageUrl,
     required this.rating,
     required this.index,
-  });
+    required this.occupation,
+  }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -161,9 +188,9 @@ class TherapistBox extends StatelessWidget {
               const SizedBox(
                 height: 5,
               ),
-              const Text(
-                'Counselor',
-                style: TextStyle(
+              Text(
+                occupation,
+                style: const TextStyle(
                   fontSize: 16,
                   color: Colors.grey,
                 ),
