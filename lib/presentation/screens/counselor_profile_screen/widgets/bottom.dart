@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:soulnest/data/data.dart';
-import 'package:soulnest/presentation/screens/counselor_profile_screen/test.dart';
+// import 'package:soulnest/presentation/screens/counselor_profile_screen/test.dart';
 import 'package:soulnest/presentation/screens/counselor_profile_screen/widgets/counselorDetailIcons.dart';
 
 class Bottom extends StatelessWidget {
@@ -48,9 +48,9 @@ class Bottom extends StatelessWidget {
                       fontWeight: FontWeight.bold,
                     ),
                   ),
-                  const Text(
-                    'Specialist on Sound Therapy',
-                    style: TextStyle(
+                  Text(
+                    data.therapists[data.currentIndex].occupation,
+                    style: const TextStyle(
                       color: Color.fromRGBO(0, 0, 0, 0.7),
                       fontWeight: FontWeight.w500,
                       fontSize: 14,
