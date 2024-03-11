@@ -91,7 +91,7 @@ class _MyWidgetState extends State<SignUp_Interests> {
                     )),
                 SizedBox(width: 24),
                 NextButton(
-                    onTap: () => Navigator.pushNamed(context, '/passwords'),
+                    onTap: () => Navigator.pushNamed(context, '/graph'),
                     child: Text(
                       "Next",
                       style: TextStyle(

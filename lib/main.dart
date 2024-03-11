@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:soulnest/screens/graph.dart';
 import 'package:soulnest/screens/passwords.dart';
 import 'package:soulnest/screens/splash_screen.dart';
 
@@ -17,6 +18,7 @@ class MyApp extends StatelessWidget {
       home: SplashScreen(),
       routes: {
         '/passwords':(context) => const Passwords(),
+        '/graph':(context) => GraphPage(),
       },
     );
   }
