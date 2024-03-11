@@ -15,8 +15,10 @@ class NextButton extends StatelessWidget {
       child: Container(
         decoration: BoxDecoration(
           color: Color.fromARGB(255, 0, 83, 145),
-          borderRadius: BorderRadius.circular(20),
+          borderRadius: BorderRadius.circular(30),
           ),
+          padding: EdgeInsets.fromLTRB(56, 15, 56, 18),
+          
         child: child,
       ),
     );

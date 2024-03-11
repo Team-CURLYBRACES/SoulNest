@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:soulnest/components/next_button.dart';
+import 'package:soulnest/components/previous_button.dart';
 import 'package:soulnest/models/checkbox_state.dart';
 
 class SignUp_Interests extends StatefulWidget {
@@ -10,7 +11,6 @@ class SignUp_Interests extends StatefulWidget {
 }
 
 class _MyWidgetState extends State<SignUp_Interests> {
-
   final notifications = [
     CheckBoxState(title: 'Music'),
     CheckBoxState(title: 'Journaling'),
@@ -23,53 +23,90 @@ class _MyWidgetState extends State<SignUp_Interests> {
   Widget build(BuildContext context) {
     return Scaffold(
         body: Center(
-          child: Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 34),
+
       child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           // logo
           Center(
-          child: Image.asset('assets/logo.png'),),
-  
+            child: Image.asset('assets/logo.png'),
+          ),
+
           const SizedBox(height: 56),
           // title
-          const Text(
-            "Choose your interests",
-            style: TextStyle(
-              fontFamily: "Poppins",
-              fontSize: 20,
-              fontWeight: FontWeight.w600,
+          Padding(
+            padding: const EdgeInsets.only(left: 30.0),
+            child: const Text(
+              "Choose your interests",
+              style: TextStyle(
+                fontFamily: "Poppins",
+                fontSize: 20,
+                fontWeight: FontWeight.w600,
+              ),
             ),
           ),
 
           const SizedBox(height: 11),
           // text
-          const Text(
-            "Please choose your interests so we can recommend more relevant therapy suggestions  ",
-            style: TextStyle(
-              fontFamily: "Poppins",
-              fontSize: 16,
-              fontWeight: FontWeight.w500,
+          Padding(
+            padding: const EdgeInsets.only(left: 30.0),
+            child: const Text(
+              "Please choose your interests so we can recommend more relevant therapy suggestions  ",
+              style: TextStyle(
+                fontFamily: "Poppins",
+                fontSize: 16,
+                fontWeight: FontWeight.w500,
+              ),
             ),
           ),
 
-          const SizedBox(height: 25),
+          const SizedBox(height: 20),
           // checkboxes
-          ...notifications.map(buildSingleCheckbox).toList(),
+          Padding(
+            padding: EdgeInsets.symmetric(horizontal: 6.0),
+            child: Column(
+              children: notifications.map(buildSingleCheckbox).toList(),
+            ),
+          ),
 
-          const SizedBox(height: 10),
+
+          const SizedBox(height: 30),
           // previous and next buttons
-          NextButton(
-            onTap:{}{}, 
-            child: Text("Next")),
-            
+
+          Padding(
+            padding: const EdgeInsets.only(left: 30.0),
+            child: Row(
+              children: <Widget>[
+                PreviousButton(
+                    onPressed: () {},
+                    child: Text(
+                      "Previous",
+                      style: TextStyle(
+                        color: Color.fromARGB(255, 0, 83, 145),
+                        fontFamily: "Poppins",
+                        fontSize: 16,
+                        fontWeight: FontWeight.w600,
+                      ),
+                    )),
+                SizedBox(width: 24),
+                NextButton(
+                    onTap: () => Navigator.pushNamed(context, '/passwords'),
+                    child: Text(
+                      "Next",
+                      style: TextStyle(
+                        color: Colors.white,
+                        fontFamily: "Poppins",
+                        fontSize: 16,
+                        fontWeight: FontWeight.w600,
+                      ),
+                    )),
+              ],
+            ),
+          )
         ],
       ),
-      
-    ))
-    );
+    ));
   }
 
   Widget buildSingleCheckbox(CheckBoxState checkbox) => CheckboxListTile(
@@ -78,6 +115,11 @@ class _MyWidgetState extends State<SignUp_Interests> {
         value: checkbox.value,
         title: Text(
           checkbox.title,
+          style: TextStyle(
+            fontFamily: "Poppins",
+            fontSize: 16,
+            fontWeight: FontWeight.w500,
+          )
         ),
         onChanged: (value) => setState(() => checkbox.value = value!),
       );
