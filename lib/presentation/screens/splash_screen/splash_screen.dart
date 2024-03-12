@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:soulnest/screens/signup_interests.dart';
+import 'package:soulnest/presentation/screens/signup_interests/signup_interests.dart';
 
 
 class SplashScreen extends StatefulWidget {

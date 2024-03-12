@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:soulnest/components/next_button.dart';
 import 'package:soulnest/components/previous_button.dart';
-import 'package:soulnest/models/checkbox_state.dart';
+import 'package:soulnest/presentation/screens/signup_interests/models/checkbox_state.dart';
 
 class SignUp_Interests extends StatefulWidget {
   const SignUp_Interests({super.key});
