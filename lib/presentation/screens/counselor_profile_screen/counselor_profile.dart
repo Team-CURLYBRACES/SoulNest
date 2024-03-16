@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:soulnest/presentation/screens/counselor_profile_screen/widgets/background.dart';
-import 'package:soulnest/presentation/screens/counselor_profile_screen/widgets/bottom.dart';
-import 'package:soulnest/presentation/screens/counselor_profile_screen/widgets/favoriteIcon.dart';
+import 'package:soulnest/presentation/screens/counselor_profile_screen/widgets/allContent.dart';
+// import 'package:soulnest/presentation/screens/counselor_profile_screen/widgets/favoriteIcon.dart';
 import 'package:soulnest/presentation/screens/counselor_profile_screen/widgets/header.dart';
 
 class CounselorProfile extends StatelessWidget {
@@ -17,25 +17,29 @@ class CounselorProfile extends StatelessWidget {
             children: [
               const Background(),
               const Header(),
-              Positioned(
-                top: size.height * 0.25,
-                child: Container(
-                  height: size.height,
-                  width: size.width,
-                  decoration: const BoxDecoration(
-                    color: Color.fromARGB(255, 255, 255, 255),
-                    borderRadius: BorderRadius.only(
-                      topLeft: Radius.circular(30),
-                      topRight: Radius.circular(30),
-                    ),
-                  ),
-                ),
-              ),
-              const Bottom(),
-              const FavoriteIcon(),
+              whiteOverlapBox(size),
+              const AllContent(),
+              // const FavoriteIcon(), favourite icon removed
             ],
           ),
         ],
+      ),
+    );
+  }
+
+  Positioned whiteOverlapBox(Size size) {
+    return Positioned(
+      top: size.height * 0.25,
+      child: Container(
+        height: size.height,
+        width: size.width,
+        decoration: const BoxDecoration(
+          color: Color.fromARGB(255, 255, 255, 255),
+          borderRadius: BorderRadius.only(
+            topLeft: Radius.circular(30),
+            topRight: Radius.circular(30),
+          ),
+        ),
       ),
     );
   }

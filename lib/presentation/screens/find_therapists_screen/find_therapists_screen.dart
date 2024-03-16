@@ -178,23 +178,15 @@ class TherapistBox extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.center,
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              Text(
-                name,
-                style: const TextStyle(
-                  fontSize: 18,
-                  fontWeight: FontWeight.w600,
-                ),
-              ),
+              Text(name, style: Theme.of(context).textTheme.headlineMedium),
               const SizedBox(
                 height: 5,
               ),
-              Text(
-                occupation,
-                style: const TextStyle(
-                  fontSize: 16,
-                  color: Colors.grey,
-                ),
-              ),
+              Text(occupation,
+                  style: Theme.of(context)
+                      .textTheme
+                      .headlineSmall
+                      ?.copyWith(color: Colors.grey[600])),
               const SizedBox(
                 height: 8,
               ),
@@ -209,15 +201,18 @@ class TherapistBox extends StatelessWidget {
                   ),
                   Text(
                     rating,
-                    style: const TextStyle(
-                        color: Color.fromRGBO(71, 71, 71, 1), fontSize: 14),
+                    style: Theme.of(context).textTheme.titleLarge?.copyWith(
+                          color: const Color.fromRGBO(71, 71, 71, 1),
+                        ),
                   ),
                   const SizedBox(
                     width: 10,
                   ),
-                  const Text(
+                  Text(
                     '(100 reviews)',
-                    style: TextStyle(color: Colors.grey, fontSize: 14),
+                    style: Theme.of(context).textTheme.titleMedium?.copyWith(
+                          color: Colors.grey,
+                        ),
                   ),
                 ],
               )

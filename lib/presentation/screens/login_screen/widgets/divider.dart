@@ -5,25 +5,25 @@ class DividerOr extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const Row(
+    return Row(
       children: [
-        Expanded(
+        const Expanded(
           child: Divider(
             color: Colors.grey,
             thickness: 0.5,
           ),
         ),
         Padding(
-          padding: EdgeInsets.symmetric(horizontal: 25),
+          padding: const EdgeInsets.symmetric(horizontal: 25),
           child: Text(
             "OR continue with",
-            style: TextStyle(
-              color: Colors.grey,
-              fontSize: 14,
-            ),
+            style: Theme.of(context)
+                .textTheme
+                .bodyMedium
+                ?.copyWith(color: Colors.grey[600]),
           ),
         ),
-        Expanded(
+        const Expanded(
           child: Divider(
             color: Colors.grey,
             thickness: 0.8,

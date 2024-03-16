@@ -26,12 +26,12 @@ class HomeHeader extends StatelessWidget {
             const Spacer(
               flex: 4,
             ),
-            const Row(
+            Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
                 Row(
                   children: [
-                    SizedBox(
+                    const SizedBox(
                       width: 55,
                       height: 55,
                       child: CircleAvatar(
@@ -39,16 +39,14 @@ class HomeHeader extends StatelessWidget {
                             AssetImage("assets/images/profile.png"),
                       ),
                     ),
-                    SizedBox(
+                    const SizedBox(
                       width: 10,
                     ),
-                    Text(
-                      "Good Morning, Buddy!",
-                      style: TextStyle(
-                          fontSize: 18,
-                          fontWeight: FontWeight.bold,
-                          color: Colors.white),
-                    ),
+                    Text("Good Morning, Buddy!",
+                        style: Theme.of(context)
+                            .textTheme
+                            .headlineMedium
+                            ?.copyWith(color: Colors.white))
                   ],
                 ),
                 // Icon(
@@ -60,13 +58,11 @@ class HomeHeader extends StatelessWidget {
             const SizedBox(
               height: 20,
             ),
-            Text(
-              "How are you feeling today ?",
-              style: Theme.of(context)
-                  .textTheme
-                  .headline1
-                  ?.copyWith(color: Colors.white, fontWeight: FontWeight.w900),
-            ),
+            Text("How are you feeling today ?",
+                style: Theme.of(context)
+                    .textTheme
+                    .displayLarge
+                    ?.copyWith(color: Colors.white)),
             const Spacer()
           ],
         ),

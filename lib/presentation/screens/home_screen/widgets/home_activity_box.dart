@@ -40,7 +40,7 @@ class ActivityBox extends StatelessWidget {
               style: Theme.of(context)
                   .textTheme
                   .displayMedium
-                  ?.copyWith(color: Colors.white, fontWeight: FontWeight.w700),
+                  ?.copyWith(color: Colors.white),
             ),
           ),
         ],

@@ -10,7 +10,9 @@ class Shedule extends StatefulWidget {
 }
 
 class _Shedule extends State<Shedule> {
+  // ignore: unused_field
   String _d1 = '', _d2 = '';
+  // ignore: unused_field
   String _t1 = '', _t2 = '';
 
   @override

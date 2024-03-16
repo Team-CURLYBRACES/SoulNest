@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:soulnest/data/data.dart';
-import 'package:soulnest/presentation/screens/counselor_profile_screen/test.dart';
+import 'package:soulnest/presentation/screens/counselor_profile_screen/shedule.dart';
 import 'package:soulnest/presentation/screens/counselor_profile_screen/widgets/counselorDetailIcons.dart';
 
-class Bottom extends StatelessWidget {
-  const Bottom({super.key});
+class AllContent extends StatelessWidget {
+  const AllContent({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -126,6 +126,7 @@ class Bottom extends StatelessWidget {
                               fontWeight: FontWeight.w600,
                             ),
                           ),
+                          const Shedule()
                         ],
                       ),
                     ),
