@@ -13,25 +13,29 @@ class _MessageBubbleState extends State<MessageBubble> {
   Widget build(BuildContext context) {
     return ListView.separated(
         itemBuilder: (context, index) {
-          return Container(
-            margin: const EdgeInsets.all(10.0),
-            child: Row(
-              mainAxisAlignment: widget.messages[index]["isUserMessage"]
-                  ? MainAxisAlignment.end
-                  : MainAxisAlignment.start,
-              children: [
-                Container(
-                  padding: const EdgeInsets.all(20.0),
-                  decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(20.0),
+          return Row(
+            mainAxisAlignment: widget.messages[index]["isUserMessage"]
+                ? MainAxisAlignment.end
+                : MainAxisAlignment.start,
+            children: [
+              Container(
+                padding: const EdgeInsets.all(20.0),
+                decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(15.0),
+                  color: widget.messages[index]["isUserMessage"]
+                      ? const Color.fromARGB(255, 0, 119, 203)
+                      : Colors.white,
+                ),
+                child: Text(
+                  widget.messages[index]["message"].text.text[0],
+                  style: TextStyle(
                     color: widget.messages[index]["isUserMessage"]
-                        ? Colors.blue[900]
-                        : Colors.white,
+                        ? Colors.white // Set text color to white for blue box
+                        : Colors.black, // Set text color to black for white box
                   ),
-                  child: Text(widget.messages[index]["message"].text.text[0]),
-                )
-              ],
-            ),
+                ),
+              )
+            ],
           );
         },
         separatorBuilder: (context, index) {
