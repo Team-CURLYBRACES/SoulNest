@@ -31,11 +31,10 @@ class SmallHeader extends StatelessWidget {
           children: [
             Text(
               title,
-              style: const TextStyle(
-                fontSize: 24,
-                fontWeight: FontWeight.w600,
-                color: Colors.white,
-              ),
+              style: Theme.of(context)
+                  .textTheme
+                  .displayMedium
+                  ?.copyWith(color: Colors.white),
             ),
           ],
         ),

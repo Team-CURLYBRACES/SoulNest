@@ -15,10 +15,7 @@ class RecentActivities extends StatelessWidget {
             alignment: Alignment.topLeft,
             child: Text(
               "Recent Activites",
-              style: Theme.of(context)
-                  .textTheme
-                  .displaySmall
-                  ?.copyWith(fontWeight: FontWeight.w700),
+              style: Theme.of(context).textTheme.displaySmall,
             ),
           ),
           const SizedBox(

@@ -19,10 +19,7 @@ class InputFiled extends StatelessWidget {
           children: [
             Text(
               textFiledTitle,
-              style: const TextStyle(
-                color: Colors.black,
-                fontSize: 16,
-              ),
+              style: Theme.of(context).textTheme.bodyLarge,
             ),
           ],
         ),
@@ -32,18 +29,19 @@ class InputFiled extends StatelessWidget {
         TextField(
           obscureText: showText,
           decoration: InputDecoration(
-              filled: true,
-              fillColor: const Color.fromRGBO(240, 240, 240, 100),
-              hintText: inputText,
-              hintStyle: const TextStyle(
-                color: Color.fromRGBO(0, 0, 0, 0.5),
+            filled: true,
+            fillColor: const Color.fromRGBO(240, 240, 240, 100),
+            hintText: inputText,
+            hintStyle: const TextStyle(
+              color: Color.fromRGBO(0, 0, 0, 0.5),
+            ),
+            border: OutlineInputBorder(
+              borderRadius: BorderRadius.circular(10),
+              borderSide: const BorderSide(
+                color: Colors.transparent,
               ),
-              border: OutlineInputBorder(
-                borderRadius: BorderRadius.circular(10),
-                borderSide: const BorderSide(
-                  color: Colors.transparent,
-                ),
-              )),
+            ),
+          ),
         )
       ],
     );

@@ -8,20 +8,22 @@ class SignUp extends StatelessWidget {
     return Row(
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
-        const Text(
+        Text(
           "Don't have an account yet?",
-          style: TextStyle(fontWeight: FontWeight.w600),
+          style: Theme.of(context).textTheme.bodyLarge,
         ),
         TextButton(
           onPressed: () {
             Navigator.pushNamed(context, "/sign-up");
           },
-          child: Text(
-            "Sign up",
-            style: Theme.of(context).textTheme.bodyLarge?.copyWith(
-                color: const Color.fromARGB(255, 0, 37, 68),
-                decoration: TextDecoration.underline,
-                fontWeight: FontWeight.bold),
+          child: Text.rich(
+            TextSpan(
+              text: "Sign Up",
+              style: Theme.of(context).textTheme.titleMedium?.copyWith(
+                    color: const Color.fromRGBO(8, 68, 139, 1),
+                    decoration: TextDecoration.underline,
+                  ),
+            ),
           ),
         )
       ],

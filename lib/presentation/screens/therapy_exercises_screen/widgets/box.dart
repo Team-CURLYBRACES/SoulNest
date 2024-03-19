@@ -39,11 +39,10 @@ class Box extends StatelessWidget {
           ),
           child: Text(
             text,
-            style: Theme.of(context).textTheme.displayMedium?.copyWith(
-                  color: Colors.white,
-                  fontWeight: FontWeight.w600,
-                  fontSize: 14,
-                ),
+            style: Theme.of(context)
+                .textTheme
+                .titleSmall
+                ?.copyWith(color: Colors.white),
           ),
         ),
       ],

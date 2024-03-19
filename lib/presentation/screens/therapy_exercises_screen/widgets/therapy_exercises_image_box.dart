@@ -43,10 +43,10 @@ class ImageBox extends StatelessWidget {
               ),
               child: Text(
                 'Meet a counselor',
-                style: Theme.of(context).textTheme.displayMedium?.copyWith(
-                    color: Colors.white,
-                    fontWeight: FontWeight.w700,
-                    fontSize: 16),
+                style: Theme.of(context)
+                    .textTheme
+                    .displaySmall
+                    ?.copyWith(color: Colors.white),
               ),
             ),
           ],

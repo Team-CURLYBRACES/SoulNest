@@ -32,22 +32,23 @@ class _ForgetPasswordState extends State<ForgetPassword> {
             const SizedBox(
               width: 10,
             ),
-            const Text(
+            Text(
               "Remember Me",
-              style: TextStyle(
-                color: Color.fromRGBO(8, 67, 139, 1),
-                fontSize: 14,
-              ),
+              style: Theme.of(context).textTheme.bodyMedium?.copyWith(
+                    color: const Color.fromRGBO(77, 77, 77, 1),
+                  ),
             ),
           ],
         ),
-        const Text(
-          "Forget Password",
-          style: TextStyle(
-              color: Color.fromRGBO(8, 67, 139, 1),
-              fontSize: 14,
-              decoration: TextDecoration.underline),
-        )
+        Text.rich(
+          TextSpan(
+            text: "Forgot Password",
+            style: Theme.of(context).textTheme.bodyMedium?.copyWith(
+                  color: const Color.fromRGBO(8, 68, 139, 1),
+                  decoration: TextDecoration.underline,
+                ),
+          ),
+        ),
       ],
     );
   }
