@@ -11,38 +11,35 @@ class ChatScreen extends StatefulWidget {
 }
 
 class _ChatScreenState extends State<ChatScreen> {
-
   late DialogFlowtter dialogFlowtter;
   final TextEditingController _controller = TextEditingController();
-  List< Map<String, dynamic> > messages = [];
+  List<Map<String, dynamic>> messages = [];
 
   @override
   void initState() {
     super.initState();
-      DialogFlowtter.fromFile().then((instance) => dialogFlowtter = instance);
+    DialogFlowtter.fromFile().then((instance) => dialogFlowtter = instance);
   }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(),
       body: Container(
         width: double.maxFinite,
         height: double.maxFinite,
         decoration: const BoxDecoration(
-          gradient: LinearGradient(
-            colors: [
-              Color.fromRGBO(0, 32, 111, 1),
-              Color.fromRGBO(27, 143, 199, 1)
-            ]
-          )
-        ),
+            gradient: LinearGradient(colors: [
+          Color.fromRGBO(0, 32, 111, 1),
+          Color.fromRGBO(27, 143, 199, 1)
+        ])),
         child: Column(
           children: [
             // For the messages sent between bot and user
-            Expanded(child: MessageBubble(messages: messages,)),
+            Expanded(
+                child: MessageBubble(
+              messages: messages,
+            )),
 
-            
             // For the messages that the user sends
             Container(
               color: Colors.blue[900],
@@ -52,24 +49,22 @@ class _ChatScreenState extends State<ChatScreen> {
                     child: Container(
                       padding: const EdgeInsets.fromLTRB(0, 10, 0, 0),
                       decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(10),
-                        color: Colors.white
-                      ),
+                          borderRadius: BorderRadius.circular(10),
+                          color: Colors.white),
                       child: TextField(
                         controller: _controller,
                       ),
                     ),
                   ),
                   IconButton(
-                      onPressed: (){
+                      onPressed: () {
                         sendMessage(_controller.text);
                         _controller.clear();
                       },
                       icon: const Icon(
-                          Icons.send,
+                        Icons.send,
                         color: Colors.white,
-                      )
-                  )
+                      ))
                 ],
               ),
             )
@@ -82,8 +77,7 @@ class _ChatScreenState extends State<ChatScreen> {
   sendMessage(String text) async {
     if (text.isEmpty) {
       print('Message is empty');
-    }
-    else {
+    } else {
       setState(() {
         addMessage(Message(text: DialogText(text: [text])), true);
       });
@@ -93,8 +87,7 @@ class _ChatScreenState extends State<ChatScreen> {
         queryInput: QueryInput(text: TextInput(text: text)));
     if (response.message == null) {
       return;
-    }
-    else {
+    } else {
       setState(() {
         addMessage(response.message!);
       });
@@ -102,6 +95,6 @@ class _ChatScreenState extends State<ChatScreen> {
   }
 
   addMessage(Message message, [bool isUserMessage = false]) {
-    messages.add({"message":message, "isUserMessage": isUserMessage});
+    messages.add({"message": message, "isUserMessage": isUserMessage});
   }
 }
