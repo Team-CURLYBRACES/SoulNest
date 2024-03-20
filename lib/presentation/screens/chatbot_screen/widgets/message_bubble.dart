@@ -26,12 +26,15 @@ class _MessageBubbleState extends State<MessageBubble> {
                       ? const Color.fromARGB(255, 0, 119, 203)
                       : Colors.white,
                 ),
-                child: Text(
-                  widget.messages[index]["message"].text.text[0],
-                  style: TextStyle(
-                    color: widget.messages[index]["isUserMessage"]
-                        ? Colors.white // Set text color to white for blue box
-                        : Colors.black, // Set text color to black for white box
+                child: Flexible(
+                  child: Text(
+                    widget.messages[index]["message"].text.text[0],
+                    style: TextStyle(
+                      color: widget.messages[index]["isUserMessage"]
+                          ? Colors.white // Set text color to white for blue box
+                          : Colors
+                              .black, // Set text color to black for white box
+                    ),
                   ),
                 ),
               )

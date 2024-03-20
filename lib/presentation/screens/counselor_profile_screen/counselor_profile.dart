@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:soulnest/presentation/screens/counselor_profile_screen/widgets/background.dart';
 import 'package:soulnest/presentation/screens/counselor_profile_screen/widgets/allContent.dart';
-// import 'package:soulnest/presentation/screens/counselor_profile_screen/widgets/favoriteIcon.dart';
+import 'package:soulnest/presentation/screens/counselor_profile_screen/widgets/favoriteIcon.dart';
 import 'package:soulnest/presentation/screens/counselor_profile_screen/widgets/header.dart';
 
 class CounselorProfile extends StatelessWidget {
@@ -19,7 +19,7 @@ class CounselorProfile extends StatelessWidget {
               const Header(),
               whiteOverlapBox(size),
               const AllContent(),
-              // const FavoriteIcon(), favourite icon removed
+              const FavoriteIcon(),
             ],
           ),
         ],

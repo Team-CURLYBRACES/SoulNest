@@ -29,8 +29,6 @@ class _ChatScreenState extends State<ChatScreen> {
         decoration: const BoxDecoration(
           gradient: LinearGradient(
             colors: [
-              // Color.fromARGB(255, 182, 182, 182),
-              // Color.fromARGB(255, 217, 217, 217),
               Color.fromRGBO(0, 31, 110, 1),
               Color.fromRGBO(31, 159, 212, 1)
             ],

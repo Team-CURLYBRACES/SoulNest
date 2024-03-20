@@ -4,6 +4,7 @@ import 'package:soulnest/data/data.dart';
 import 'package:soulnest/presentation/screens/counselor_profile_screen/counselor_profile.dart';
 import 'package:soulnest/presentation/screens/home_screen/home_screen.dart';
 import 'package:soulnest/presentation/screens/login_screen/login_screen.dart';
+import 'package:soulnest/presentation/screens/music_therapy_screen/music_therapy_screen.dart';
 import 'package:soulnest/presentation/screens/profile_screen/profile_screen.dart';
 import 'package:soulnest/presentation/screens/sign_up_screen/sign_up_screen.dart';
 import 'package:soulnest/presentation/screens/therapy_exercises_screen/therapy_exercises_screen.dart';
@@ -49,6 +50,7 @@ class _AppState extends State<App> {
           "/counselor-profile": (context) => const CounselorProfile(),
           "/user-profile": (context) => const ProfilePage(),
           "/therapy-exercises": (context) => const TherapyExercisesPage(),
+          "/music-therapy": (context) => const MusicTherapy(),
         },
       ),
     );
