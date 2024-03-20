@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/widgets.dart';
 
 class MessageBubble extends StatefulWidget {
   final List messages;
@@ -20,15 +21,17 @@ class _MessageBubbleState extends State<MessageBubble> {
                   ? MainAxisAlignment.end
                   : MainAxisAlignment.start,
               children: [
-                Container(
-                  padding: const EdgeInsets.all(20.0),
-                  decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(20.0),
-                    color: widget.messages[index]["isUserMessage"]
-                        ? Colors.blue[900]
-                        : Colors.white,
+                Expanded(
+                  child: Container(
+                    padding: const EdgeInsets.all(20.0),
+                    decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(20.0),
+                      color: widget.messages[index]["isUserMessage"]
+                          ? Colors.blue[900]
+                          : Colors.white,
+                    ),
+                    child: Text(widget.messages[index]["message"].text.text[0]),
                   ),
-                  child: Text(widget.messages[index]["message"].text.text[0]),
                 )
               ],
             ),
