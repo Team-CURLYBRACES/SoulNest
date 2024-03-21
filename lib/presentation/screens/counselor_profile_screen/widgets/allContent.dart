@@ -20,6 +20,7 @@ class AllContent extends StatelessWidget {
               width: size.width,
               child: Column(
                 children: [
+                  // Profile Image
                   Container(
                     width: size.width * 0.35,
                     height: size.width * 0.35,
@@ -87,47 +88,58 @@ class AllContent extends StatelessWidget {
                       const SizedBox(width: 5),
                     ],
                   ),
-                  const SizedBox(
-                    height: 20,
-                  ),
+                  // const SizedBox(
+                  //   height: 20,
+                  // ),
                   ClipRRect(
                     borderRadius: BorderRadius.circular(20),
                     child: SizedBox(
                       height: MediaQuery.of(context).size.height * 0.4,
-                      child: ListView(
+                      child: Padding(
                         padding:
                             const EdgeInsets.only(left: 20, right: 20, top: 20),
-                        shrinkWrap: true,
-                        children: [
-                          const Text(
-                            'Description',
-                            style: TextStyle(
-                              color: Color.fromRGBO(0, 0, 0, 1),
-                              fontSize: 18,
-                              fontWeight: FontWeight.w600,
+                        child: Column(
+                          children: [
+                            Expanded(
+                              child: ListView(
+                                // padding:
+                                // const EdgeInsets.only(left: 20, right: 20, top: 20), //  if this is added then the shedule will not be visible properly
+                                shrinkWrap: true,
+                                children: [
+                                  const Text(
+                                    'Description',
+                                    style: TextStyle(
+                                      color: Color.fromRGBO(0, 0, 0, 1),
+                                      fontSize: 18,
+                                      fontWeight: FontWeight.w600,
+                                    ),
+                                  ),
+                                  const SizedBox(height: 10),
+                                  Text(
+                                    'MBBS (UK), MRCP(UK), Board Certified in Int. Medicine (U.S.A). The founder of Healthy Life Allergists Clinic.',
+                                    style: TextStyle(
+                                      color: Colors.grey[600],
+                                      fontSize: 16,
+                                      fontWeight: FontWeight.w600,
+                                      leadingDistribution:
+                                          TextLeadingDistribution.even,
+                                    ),
+                                  ),
+                                  const SizedBox(height: 10),
+                                  const Text(
+                                    'Schedules',
+                                    style: TextStyle(
+                                      color: Color.fromRGBO(0, 0, 0, 1),
+                                      fontSize: 18,
+                                      fontWeight: FontWeight.w600,
+                                    ),
+                                  ),
+                                  const Shedule()
+                                ],
+                              ),
                             ),
-                          ),
-                          const SizedBox(height: 10),
-                          Text(
-                            'MBBS (UK), MRCP(UK), Board Certified in Int. Medicine (U.S.A). The founder of Healthy Life Allergists Clinic.',
-                            style: TextStyle(
-                              color: Colors.grey[600],
-                              fontSize: 16,
-                              fontWeight: FontWeight.w600,
-                              leadingDistribution: TextLeadingDistribution.even,
-                            ),
-                          ),
-                          const SizedBox(height: 10),
-                          const Text(
-                            'Schedules',
-                            style: TextStyle(
-                              color: Color.fromRGBO(0, 0, 0, 1),
-                              fontSize: 18,
-                              fontWeight: FontWeight.w600,
-                            ),
-                          ),
-                          const Shedule()
-                        ],
+                          ],
+                        ),
                       ),
                     ),
                   )

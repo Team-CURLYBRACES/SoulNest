@@ -17,17 +17,19 @@ class _Shedule extends State<Shedule> {
 
   @override
   Widget build(BuildContext context) {
-    return Column(
-      mainAxisSize: MainAxisSize.max,
-      children: [
-        _datePicker(),
-        _timePicker(),
-      ],
+    return SizedBox(
+      child: Column(
+        children: [
+          datePicker(),
+          timePicker(),
+        ],
+      ),
     );
   }
 
-  Widget _datePicker() {
+  Widget datePicker() {
     return Column(
+      mainAxisSize: MainAxisSize.max,
       children: [
         const SizedBox(height: 8),
         Text(
@@ -48,8 +50,9 @@ class _Shedule extends State<Shedule> {
     );
   }
 
-  Widget _timePicker() {
+  Widget timePicker() {
     return Column(
+      mainAxisSize: MainAxisSize.max,
       crossAxisAlignment: CrossAxisAlignment.center,
       children: [
         const SizedBox(height: 8),
