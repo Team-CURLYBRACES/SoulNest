@@ -29,13 +29,8 @@ class _ActiveMinutesState extends State<ActiveMinutes> {
         children: [
           Align(
             alignment: Alignment.topLeft,
-            child: Text(
-              "Active Minutes",
-              style: Theme.of(context)
-                  .textTheme
-                  .displaySmall
-                  ?.copyWith(fontWeight: FontWeight.w700),
-            ),
+            child: Text("Active Minutes",
+                style: Theme.of(context).textTheme.displaySmall),
           ),
           Container(
             margin: const EdgeInsets.only(top: 30, bottom: 30),

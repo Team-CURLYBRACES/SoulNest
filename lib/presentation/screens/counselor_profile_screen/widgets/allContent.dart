@@ -1,12 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:soulnest/data/data.dart';
+import 'package:soulnest/presentation/screens/counselor_profile_screen/shedule.dart';
 import 'package:soulnest/presentation/screens/counselor_profile_screen/widgets/counselorDetailIcons.dart';
-// import 'package:soulnest/presentation/screens/counselor_profile_screen/widgets/date_picker.dart';
-// import 'package:date_picker_timeline/date_picker_timeline.dart';
 
-class Bottom extends StatelessWidget {
-  const Bottom({super.key});
+class AllContent extends StatelessWidget {
+  const AllContent({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -49,9 +48,9 @@ class Bottom extends StatelessWidget {
                       fontWeight: FontWeight.bold,
                     ),
                   ),
-                  const Text(
-                    'Specialist on Sound Therapy',
-                    style: TextStyle(
+                  Text(
+                    data.therapists[data.currentIndex].occupation,
+                    style: const TextStyle(
                       color: Color.fromRGBO(0, 0, 0, 0.7),
                       fontWeight: FontWeight.w500,
                       fontSize: 14,
@@ -88,11 +87,16 @@ class Bottom extends StatelessWidget {
                       const SizedBox(width: 5),
                     ],
                   ),
-                  Column(
-                    children: [
-                      ListView(
+                  const SizedBox(
+                    height: 20,
+                  ),
+                  ClipRRect(
+                    borderRadius: BorderRadius.circular(20),
+                    child: SizedBox(
+                      height: MediaQuery.of(context).size.height * 0.4,
+                      child: ListView(
                         padding:
-                            const EdgeInsets.only(left: 20, right: 20, top: 30),
+                            const EdgeInsets.only(left: 20, right: 20, top: 20),
                         shrinkWrap: true,
                         children: [
                           const Text(
@@ -113,7 +117,7 @@ class Bottom extends StatelessWidget {
                               leadingDistribution: TextLeadingDistribution.even,
                             ),
                           ),
-                          const SizedBox(height: 20),
+                          const SizedBox(height: 10),
                           const Text(
                             'Schedules',
                             style: TextStyle(
@@ -122,23 +126,11 @@ class Bottom extends StatelessWidget {
                               fontWeight: FontWeight.w600,
                             ),
                           ),
-                          const SizedBox(
-                            height: 20,
-                          ),
-                          // DatePicker(
-                          //   DateTime(
-                          //     DateTime.february,
-                          //   ),
-                          //   height: 100,
-                          //   width: 80,
-                          //   selectedTextColor:
-                          //       const Color.fromARGB(255, 255, 255, 255),
-                          //   selectionColor: const Color.fromRGBO(28, 146, 202, 1),
-                          // )
+                          const Shedule()
                         ],
                       ),
-                    ],
-                  ),
+                    ),
+                  )
                 ],
               ),
             ),

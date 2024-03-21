@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:soulnest/presentation/screens/chatbot_screen/chatbot_screen.dart';
 import 'package:soulnest/presentation/screens/find_therapists_screen/find_therapists_screen.dart';
 import 'package:soulnest/presentation/screens/home_screen/widgets/home_screen_widget.dart';
 import 'package:soulnest/presentation/screens/profile_screen/profile_screen.dart';
 import 'package:soulnest/presentation/screens/therapy_exercises_screen/therapy_exercises_screen.dart';
+import 'package:soulnest/presentation/screens/chatbot_screen/chat_screen.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
@@ -17,7 +17,7 @@ class _HomeScreenState extends State<HomeScreen> {
   final screens = [
     const HomeScreenWidget(),
     const FindTherapists(),
-    const ChatbotScreen(),
+    const ChatScreen(),
     const TherapyExercisesPage(),
     const ProfilePage(),
   ];

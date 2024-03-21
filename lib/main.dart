@@ -30,6 +30,11 @@ class _AppState extends State<App> {
       child: MaterialApp(
         debugShowCheckedModeBanner: false,
         theme: ThemeData(
+          colorScheme: ColorScheme.fromSeed(
+            seedColor: Colors.blue,
+            primary: Colors.blue,
+            secondary: Colors.blue,
+          ),
           fontFamily: "Poppins",
           textTheme: customTextTheme(),
           bottomNavigationBarTheme: const BottomNavigationBarThemeData(
