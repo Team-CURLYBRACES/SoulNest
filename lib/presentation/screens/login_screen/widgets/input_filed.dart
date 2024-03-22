@@ -4,11 +4,13 @@ class InputFiled extends StatelessWidget {
   final String inputText;
   final bool showText;
   final String textFiledTitle;
+  final TextEditingController textController;
   const InputFiled({
     super.key,
     required this.inputText,
     required this.showText,
     required this.textFiledTitle,
+    required this.textController,
   });
 
   @override

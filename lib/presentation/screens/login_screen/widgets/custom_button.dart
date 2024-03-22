@@ -11,7 +11,7 @@ class CustomeButton extends StatelessWidget {
   Widget build(BuildContext context) {
     return SizedBox(
       width: double.infinity,
-      child: Expanded(
+      height: 55,
         child: SizedBox(
           height: 55,
           child: TextButton(
@@ -31,7 +31,7 @@ class CustomeButton extends StatelessWidget {
             ),
           ),
         ),
-      ),
+      
     );
   }
 }
