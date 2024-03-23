@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import 'package:soulnest/data/data.dart';
+import 'package:soulnest/model/data.dart';
 import 'package:soulnest/presentation/screens/counselor_profile_screen/shedule.dart';
 import 'package:soulnest/presentation/screens/counselor_profile_screen/widgets/counselorDetailIcons.dart';
 
