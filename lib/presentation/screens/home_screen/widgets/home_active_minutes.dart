@@ -29,7 +29,7 @@ class _ActiveMinutesState extends State<ActiveMinutes> {
         children: [
           Align(
             alignment: Alignment.topLeft,
-            child: Text("Active Minutes",
+            child: Text("Weekly Stress Level",
                 style: Theme.of(context).textTheme.displaySmall),
           ),
           Container(
@@ -37,7 +37,7 @@ class _ActiveMinutesState extends State<ActiveMinutes> {
             decoration: BoxDecoration(
               borderRadius: BorderRadius.circular(10),
             ),
-            height: 180,
+            height: 200,
             child: BarGraph(
               weeklySummary: weeklySummary,
             ),

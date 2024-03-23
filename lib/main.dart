@@ -3,9 +3,11 @@ import 'package:provider/provider.dart';
 import 'package:soulnest/data/data.dart';
 import 'package:soulnest/presentation/screens/counselor_profile_screen/counselor_profile.dart';
 import 'package:soulnest/presentation/screens/home_screen/home_screen.dart';
+import 'package:soulnest/presentation/screens/interests_screen/signup_interests.dart';
 import 'package:soulnest/presentation/screens/login_screen/login_screen.dart';
 import 'package:soulnest/presentation/screens/profile_screen/profile_screen.dart';
 import 'package:soulnest/presentation/screens/sign_up_screen/sign_up_screen.dart';
+import 'package:soulnest/presentation/screens/splash_screen/splash_screen.dart';
 import 'package:soulnest/presentation/screens/therapy_exercises_screen/therapy_exercises_screen.dart';
 import 'package:soulnest/presentation/theme/text_theme.dart';
 
@@ -41,7 +43,7 @@ class _AppState extends State<App> {
             backgroundColor: Color.fromRGBO(0, 83, 145, 1),
           ),
         ),
-        initialRoute: "/login",
+        initialRoute: "/splash_screen",
         routes: {
           "/home": (context) => const HomeScreen(),
           "/login": (context) => const LoginScreen(),
@@ -49,6 +51,8 @@ class _AppState extends State<App> {
           "/counselor-profile": (context) => const CounselorProfile(),
           "/user-profile": (context) => const ProfilePage(),
           "/therapy-exercises": (context) => const TherapyExercisesPage(),
+          "/splash_screen": (context) => const SplashScreen(),
+          "/signup_interests": (context) => const SignUp_Interests(),
         },
       ),
     );
