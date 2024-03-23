@@ -44,7 +44,7 @@ class _AppState extends State<App> {
         initialRoute: "/login",
         routes: {
           "/home": (context) => const HomeScreen(),
-          "/login": (context) => const LoginScreen(),
+          "/login": (context) => LoginScreen(),
           "/sign-up": (context) => const SignUpScreen(),
           "/counselor-profile": (context) => const CounselorProfile(),
           "/user-profile": (context) => const ProfilePage(),
