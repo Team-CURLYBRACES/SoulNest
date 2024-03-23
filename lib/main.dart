@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import 'package:soulnest/data/data.dart';
+// import 'package:soulnest/models/data.dart';
 import 'package:soulnest/presentation/screens/counselor_profile_screen/counselor_profile.dart';
 import 'package:soulnest/presentation/screens/home_screen/home_screen.dart';
 import 'package:soulnest/presentation/screens/login_screen/login_screen.dart';
@@ -9,6 +9,7 @@ import 'package:soulnest/presentation/screens/profile_screen/profile_screen.dart
 import 'package:soulnest/presentation/screens/sign_up_screen/sign_up_screen.dart';
 import 'package:soulnest/presentation/screens/therapy_exercises_screen/therapy_exercises_screen.dart';
 import 'package:soulnest/presentation/theme/text_theme.dart';
+import 'package:soulnest/providers/doctors_provider.dart';
 
 void main() {
   runApp(const App());
@@ -26,7 +27,7 @@ class _AppState extends State<App> {
   Widget build(BuildContext context) {
     return MultiProvider(
       providers: [
-        ChangeNotifierProvider(create: (context) => Data()),
+        ChangeNotifierProvider(create: (context) => DoctorsProvider()),
       ],
       child: MaterialApp(
         debugShowCheckedModeBanner: false,

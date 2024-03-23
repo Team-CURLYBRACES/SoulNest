@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+import 'package:soulnest/models/doctor.dart';
 import 'package:soulnest/presentation/common/profile_screen_header.dart';
-import 'package:soulnest/data/data.dart';
-import 'package:soulnest/presentation/screens/find_therapists_screen/models/therapist.dart';
+import 'package:soulnest/models/data.dart';
+import 'package:soulnest/providers/doctors_provider.dart';
 
 class FindTherapists extends StatefulWidget {
   const FindTherapists({Key? key}) : super(key: key);
@@ -15,9 +16,17 @@ class _FindTherapistsState extends State<FindTherapists> {
   String _searchQuery = '';
 
   @override
+  void initState() {
+    super.initState();
+    WidgetsBinding.instance.addPostFrameCallback((timeStamp) {
+      Provider.of<DoctorsProvider>(context, listen: false).getAllDoctors();
+    });
+  }
+
+  @override
   Widget build(BuildContext context) {
-    return Consumer<Data>(
-      builder: ((context, data, child) => Scaffold(
+    return Consumer<DoctorsProvider>(
+      builder: ((context, value, child) => Scaffold(
             body: Column(
               children: [
                 const SmallHeader(
@@ -46,12 +55,12 @@ class _FindTherapistsState extends State<FindTherapists> {
                               padding: const EdgeInsets.symmetric(
                                 vertical: 10,
                               ),
-                              itemCount: filteredTherapists(data).length,
+                              itemCount: filteredTherapists(value).length,
                               itemBuilder: (BuildContext context, int index) {
                                 final therapist =
-                                    filteredTherapists(data)[index];
+                                    filteredTherapists(value)[index];
                                 return GestureDetector(
-                                  onTap: () => data.setIndex(index),
+                                  onTap: () => value.setIndex(index),
                                   child: Container(
                                     decoration: const BoxDecoration(
                                       color: Color.fromRGBO(236, 245, 249, 1),
@@ -61,10 +70,10 @@ class _FindTherapistsState extends State<FindTherapists> {
                                     height: 117,
                                     child: TherapistBox(
                                       name: therapist.name,
-                                      imageUrl: therapist.imageUrl,
-                                      rating: therapist.rating,
+                                      imageUrl: therapist.image,
+                                      rating: therapist.experience,
                                       index: index,
-                                      occupation: therapist.occupation,
+                                      occupation: therapist.specialisation,
                                     ),
                                   ),
                                 );
@@ -82,12 +91,12 @@ class _FindTherapistsState extends State<FindTherapists> {
     );
   }
 
-  List<Therapist> filteredTherapists(Data data) {
-    return data.therapists.where((therapist) {
+  List<Doctor> filteredTherapists(DoctorsProvider value) {
+    return value.doctors.where((therapist) {
       final name = therapist.name.toLowerCase();
-      final occupation = therapist.occupation.toLowerCase();
+      final specialisation = therapist.specialisation.toLowerCase();
       final query = _searchQuery.toLowerCase();
-      return name.contains(query) || occupation.contains(query);
+      return name.contains(query) || specialisation.contains(query);
     }).toList();
   }
 
@@ -155,22 +164,35 @@ class TherapistBox extends StatelessWidget {
       child: Row(
         children: [
           const SizedBox(
-            width: 20,
+            width: 10,
           ),
-          ClipRRect(
-            borderRadius: BorderRadius.circular(10),
-            child: Container(
-              height: 80,
-              width: 80,
-              decoration: const BoxDecoration(
-                color: Colors.white,
-              ),
-              child: Image.asset(
-                imageUrl,
-                fit: BoxFit.cover,
-              ),
-            ),
-          ),
+          imageUrl.isNotEmpty
+              ? Container(
+                  height: 80,
+                  width: 80,
+                  decoration: const BoxDecoration(
+                    color: Colors.white,
+                  ),
+                  child: Image.asset(
+                    imageUrl,
+                    fit: BoxFit.cover,
+                  ),
+                )
+              : ClipRRect(
+                  borderRadius: BorderRadius.circular(40),
+                  child: Container(
+                    height: 70,
+                    width: 70,
+                    color: Color.fromARGB(255, 71, 105, 255),
+                    child: Center(
+                      child: Text(name[4],
+                          style: Theme.of(context)
+                              .textTheme
+                              .headlineMedium
+                              ?.copyWith(color: Colors.white)),
+                    ),
+                  ),
+                ),
           const SizedBox(
             width: 20,
           ),
