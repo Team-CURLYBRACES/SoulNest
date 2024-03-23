@@ -34,7 +34,7 @@ class LoginScreen extends StatelessWidget {
       if (response.statusCode == 200) {
         Navigator.pushNamed(context, "/home");
       }
-      else if (response.statusCode= 401) {
+      else if (response.statusCode == 401) {
         log('Authorization unsuccessful');
       }
     }
