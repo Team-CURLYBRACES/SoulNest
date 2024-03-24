@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-// import 'package:soulnest/models/data.dart';
+import 'package:soulnest/presentation/screens/counselor_profile_screen/widgets/bookSessionButton.dart';
 import 'package:soulnest/presentation/screens/counselor_profile_screen/widgets/shedule.dart';
 import 'package:soulnest/presentation/screens/counselor_profile_screen/widgets/counselorDetailIcons.dart';
 import 'package:soulnest/providers/doctors_provider.dart';
@@ -149,7 +149,8 @@ class AllContent extends StatelessWidget {
                                       fontWeight: FontWeight.w600,
                                     ),
                                   ),
-                                  const Shedule()
+                                  const Shedule(),
+                                  const BookSessionButton(),
                                 ],
                               ),
                             ),
