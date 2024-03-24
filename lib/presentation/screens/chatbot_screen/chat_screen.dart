@@ -1,10 +1,14 @@
+import 'dart:convert';
+import 'package:http/http.dart' as http;
 import 'package:dialog_flowtter/dialog_flowtter.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'message_bubble.dart';
+import 'package:logger/logger.dart';
 
 class ChatScreen extends StatefulWidget {
-  const ChatScreen({super.key});
+  final String? token;
+  const ChatScreen({Key? key, this.token}) : super(key: key);
 
   @override
   State<ChatScreen> createState() => _ChatScreenState();
@@ -23,6 +27,9 @@ class _ChatScreenState extends State<ChatScreen> {
 
   @override
   Widget build(BuildContext context) {
+    final  logger = Logger();
+    logger.d(widget.token);
+    String token = widget.token as String;
     return Scaffold(
       body: Container(
         width: double.maxFinite,
@@ -59,6 +66,7 @@ class _ChatScreenState extends State<ChatScreen> {
                   IconButton(
                       onPressed: () {
                         sendMessage(_controller.text);
+                        sendPromptToDB(_controller.text, token);
                         _controller.clear();
                       },
                       icon: const Icon(
@@ -96,5 +104,21 @@ class _ChatScreenState extends State<ChatScreen> {
 
   addMessage(Message message, [bool isUserMessage = false]) {
     messages.add({"message": message, "isUserMessage": isUserMessage});
+  }
+
+  sendPromptToDB(String text, String token) {
+
+    String url = "https://801c-112-134-146-67.ngrok-free.app/users/update_chat/";
+      Map<String, dynamic> data = {"text": text, "is_stress_checked": "false"};
+      String jsonData = jsonEncode(data);
+
+      final response = http.post(
+        Uri.parse(url),
+        headers: <String, String>{
+          'Content-Type': 'application/json',
+          'Authorization': 'Bearer $token',
+        },
+        body: jsonData,
+    );
   }
 }

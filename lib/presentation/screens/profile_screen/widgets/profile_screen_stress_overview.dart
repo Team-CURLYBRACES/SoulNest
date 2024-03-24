@@ -10,11 +10,11 @@ class StressOverView extends StatelessWidget {
   Widget build(BuildContext context) {
     List<double> weeklySummary = [
       80,
-      40,
+      30,
+      60,
+      10,
       20,
-      50,
-      20,
-      90,
+      10,
       95,
     ];
 
@@ -158,13 +158,13 @@ class StressOverView extends StatelessWidget {
                     // Navigate to the relevant page based on the stress level
                     switch (stressLevel) {
                       case 'Normal':
-                        Navigator.pushNamed(context, '/chatbot_screen.dart');
+                        Navigator.pushNamed(context, '/chatbot_screen');
                         break;
                       case 'Mild Stress':
-                        Navigator.pushNamed(context, '/therapy_exercises_screen');
+                        Navigator.pushNamed(context, '/therapy-exercises');
                         break;
                       case 'High Stress':
-                        Navigator.pushNamed(context, '/counselor_profile_screen');
+                        Navigator.pushNamed(context, '/find_therapists');
                         break;
                       default:
                         break;

@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import 'package:soulnest/data/data.dart';
+
 import 'package:soulnest/presentation/screens/chatbot_screen/chat_screen.dart';
+import 'package:soulnest/model/data.dart';
 import 'package:soulnest/presentation/screens/counselor_profile_screen/counselor_profile.dart';
 import 'package:soulnest/presentation/screens/find_therapists_screen/find_therapists_screen.dart';
 import 'package:soulnest/presentation/screens/home_screen/home_screen.dart';
@@ -47,8 +48,8 @@ class _AppState extends State<App> {
         ),
         initialRoute: "/splash_screen",
         routes: {
-          "/home": (context) => const HomeScreen(),
-          "/login": (context) => const LoginScreen(),
+          "/home": (context) => HomeScreen(),
+          "/login": (context) => LoginScreen(),
           "/sign-up": (context) => const SignUpScreen(),
           "/counselor-profile": (context) => const CounselorProfile(),
           "/user-profile": (context) => const ProfilePage(),
