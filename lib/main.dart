@@ -1,8 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+
+import 'package:soulnest/presentation/screens/chatbot_screen/chat_screen.dart';
 import 'package:soulnest/model/data.dart';
 import 'package:soulnest/presentation/screens/counselor_profile_screen/counselor_profile.dart';
+import 'package:soulnest/presentation/screens/find_therapists_screen/find_therapists_screen.dart';
 import 'package:soulnest/presentation/screens/home_screen/home_screen.dart';
+import 'package:soulnest/presentation/screens/interests_screen/signup_interests.dart';
 import 'package:soulnest/presentation/screens/login_screen/login_screen.dart';
 import 'package:soulnest/presentation/screens/profile_screen/profile_screen.dart';
 import 'package:soulnest/presentation/screens/sign_up_screen/sign_up_screen.dart';
@@ -21,7 +25,7 @@ class App extends StatefulWidget {
   @override
   State<App> createState() => _AppState();
 }
-
+// cls
 class _AppState extends State<App> {
   @override
   Widget build(BuildContext context) {
@@ -43,9 +47,9 @@ class _AppState extends State<App> {
             backgroundColor: Color.fromRGBO(0, 83, 145, 1),
           ),
         ),
-        initialRoute: "/login",
+        initialRoute: "/splash_screen",
         routes: {
-          "/home": (context) => const HomeScreen(),
+          "/home": (context) => HomeScreen(),
           "/login": (context) => LoginScreen(),
           "/sign-up": (context) => const SignUpScreen(),
           "/counselor-profile": (context) => const CounselorProfile(),
