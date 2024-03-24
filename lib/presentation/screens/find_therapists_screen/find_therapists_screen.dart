@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:soulnest/models/doctor.dart';
 import 'package:soulnest/presentation/common/profile_screen_header.dart';
-import 'package:soulnest/models/data.dart';
+// import 'package:soulnest/models/data.dart';
 import 'package:soulnest/providers/doctors_provider.dart';
 
 class FindTherapists extends StatefulWidget {
@@ -71,7 +71,7 @@ class _FindTherapistsState extends State<FindTherapists> {
                                     child: TherapistBox(
                                       name: therapist.name,
                                       imageUrl: therapist.image,
-                                      rating: therapist.experience,
+                                      rating: "4.9",
                                       index: index,
                                       occupation: therapist.specialisation,
                                     ),
@@ -158,7 +158,7 @@ class TherapistBox extends StatelessWidget {
   Widget build(BuildContext context) {
     return GestureDetector(
       onTap: () {
-        Provider.of<Data>(context, listen: false).setIndex(index);
+        Provider.of<DoctorsProvider>(context, listen: false).setIndex(index);
         Navigator.pushNamed(context, '/counselor-profile');
       },
       child: Row(
@@ -183,7 +183,7 @@ class TherapistBox extends StatelessWidget {
                   child: Container(
                     height: 70,
                     width: 70,
-                    color: Color.fromARGB(255, 71, 105, 255),
+                    color: const Color.fromARGB(255, 71, 105, 255),
                     child: Center(
                       child: Text(name[4],
                           style: Theme.of(context)
