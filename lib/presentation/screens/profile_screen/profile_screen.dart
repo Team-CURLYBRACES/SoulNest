@@ -27,9 +27,10 @@ class ProfilePage extends StatelessWidget {
               SizedBox(
                 height: 30,
               ),
-              StressOverView()
+              StressOverView(),
             ],
-          ))
+           )
+          )
         ],
       ),
     );

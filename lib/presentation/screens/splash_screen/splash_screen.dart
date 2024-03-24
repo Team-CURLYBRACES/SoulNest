@@ -17,7 +17,7 @@ class _SplashScreenState extends State<SplashScreen>
     super.initState();
     SystemChrome.setEnabledSystemUIMode(SystemUiMode.immersive);
 
-    Future.delayed(Duration(seconds: 2), () {
+    Future.delayed(const Duration(seconds: 2), () {
       Navigator.of(context).pushReplacement(MaterialPageRoute(
         builder: (_) =>  LoginScreen(),
       ));
@@ -37,7 +37,7 @@ class _SplashScreenState extends State<SplashScreen>
       body: Container(
           decoration: const BoxDecoration(color: Colors.white),
           child: Center(
-            child: Image.asset('assets/logo.png'),
+            child: Image.asset('assets/logos/logo.png'),
           )),
     );
   }
