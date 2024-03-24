@@ -14,7 +14,7 @@ class StressOverView extends StatelessWidget {
       60,
       100,
       20,
-      10,
+      90,
       95,
     ];
 
@@ -33,7 +33,7 @@ class StressOverView extends StatelessWidget {
       stressColor = const Color.fromARGB(255, 214, 139, 0);
     } else {
       stressLevel = 'High Stress';
-      stressColor = const Color.fromARGB(189, 176, 0, 0);
+      stressColor = const Color.fromARGB(255, 125, 12, 4);
     }
 
     Size size = MediaQuery.of(context).size;
@@ -161,10 +161,10 @@ class StressOverView extends StatelessWidget {
                         Navigator.pushNamed(context, '/chatbot_screen');
                         break;
                       case 'Mild Stress':
-                        Navigator.pushNamed(context, '/therapy-exercises');
+                        Navigator.pushNamed(context, '/therapy_exercises_screen');
                         break;
                       case 'High Stress':
-                        Navigator.pushNamed(context, '/find_therapists');
+                        Navigator.pushNamed(context, '/find_therapists_screen');
                         break;
                       default:
                         break;

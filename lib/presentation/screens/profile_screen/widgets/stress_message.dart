@@ -21,7 +21,7 @@ class StressMessageBox extends StatelessWidget {
         message = 'How about doing some mind relaxing exercises?';
         break;
       case 'High Stress':
-        message = 'Relax for a bit, let\'s have a conversation with a professional and get this sorted.';
+        message = 'How about we meet up with a counselor or mental health pro to tackle that stress together?';
         break;
       default:
         message = '';
@@ -34,7 +34,7 @@ class StressMessageBox extends StatelessWidget {
         padding: EdgeInsets.all(16),
         margin: EdgeInsets.symmetric(horizontal: 16),
         decoration: BoxDecoration(
-          color: stressLevel == 'Normal' ? Color.fromARGB(255, 9, 74, 10) : stressLevel == 'Mild Stress' ? Color.fromARGB(255, 199, 150, 4) : const Color.fromARGB(255, 107, 7, 0),
+          color: stressLevel == 'Normal' ? Color.fromARGB(255, 9, 74, 10) : stressLevel == 'Mild Stress' ? Color.fromARGB(255, 181, 122, 3) : Color.fromARGB(255, 125, 12, 4),
           borderRadius: BorderRadius.circular(10),
         ),
         child: Text(
@@ -43,7 +43,7 @@ class StressMessageBox extends StatelessWidget {
           style: TextStyle(
             color: Colors.white,
             fontSize: 14,
-            fontWeight: FontWeight.w400,
+            fontWeight: FontWeight.w500,
           ),
         ),
       ),
