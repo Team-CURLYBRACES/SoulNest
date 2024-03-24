@@ -5,12 +5,12 @@ import 'package:SoulNest/lib/presentation/screens/sign_up_screen_02/widgets/my_t
 class SignupPage2 extends StatelessWidget {
   SignupPage2({super.key});
 
-  // text editing controllers
+  // text editing controller
   final birthdayController = TextEditingController();
   final genderController = TextEditingController();
   final occupationController = TextEditingController();
 
-  // sign user in method
+  // sign user in methodss
   void SignupPage2() {}
 
   @override
