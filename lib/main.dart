@@ -52,7 +52,7 @@ class _AppState extends State<App> {
         initialRoute: "/splash_screen",
         routes: {
           "/splash_screen": (context) => const SplashScreen(),
-          "/home": (context) => HomeScreen(),
+          "/home": (context) => const HomeScreen(),
           "/login": (context) => LoginScreen(),
           "/sign_up_screen": (context) => const SignUpScreen(),
           "/sign-up": (context) => const SignUpScreen(),
