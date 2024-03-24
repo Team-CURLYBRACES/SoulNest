@@ -30,7 +30,7 @@ class _MyWidgetState extends State<SignUp_Interests> {
         children: [
           // logo
           Center(
-            child: Image.asset('assets/logo.png'),
+            child: Image.asset('assets/logos/logo.png'),
           ),
 
           const SizedBox(height: 56),
@@ -89,9 +89,9 @@ class _MyWidgetState extends State<SignUp_Interests> {
                         fontWeight: FontWeight.w600,
                       ),
                     )),
-                SizedBox(width: 24),
+                SizedBox(width: 50),
                 NextButton(
-                    onTap: () => Navigator.pushNamed(context, '/graph'),
+                    onTap: () => Navigator.pushNamed(context, '/sign-up-screen-04'),
                     child: Text(
                       "Next",
                       style: TextStyle(

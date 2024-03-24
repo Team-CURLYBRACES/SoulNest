@@ -29,6 +29,7 @@ class _ChatScreenState extends State<ChatScreen> {
     final logger = Logger();
     logger.d(widget.token);
     String token = widget.token as String;
+    var size;
     return Scaffold(
         body: Container(
       width: double.infinity,
