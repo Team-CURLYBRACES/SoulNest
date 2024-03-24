@@ -10,9 +10,9 @@ class StressOverView extends StatelessWidget {
   Widget build(BuildContext context) {
     List<double> weeklySummary = [
       80,
-      30,
+      90,
       60,
-      10,
+      100,
       20,
       10,
       95,
