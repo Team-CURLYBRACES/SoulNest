@@ -10,12 +10,8 @@ import 'package:soulnest/presentation/screens/interests_screen/signup_interests.
 import 'package:soulnest/presentation/screens/login_screen/login_screen.dart';
 import 'package:soulnest/presentation/screens/profile_screen/profile_screen.dart';
 import 'package:soulnest/presentation/screens/sign_up_screen/sign_up_screen.dart';
-<<<<<<< HEAD
-import 'package:soulnest/presentation/screens/splash_screen/splash_screen.dart';
-=======
 import 'package:soulnest/presentation/screens/sign_up_screen_02/sign_up_screen_02.dart';
 import 'package:soulnest/presentation/screens/sign_up_screen_04/sign_up_screen_04.dart';
->>>>>>> signup-merge
 import 'package:soulnest/presentation/screens/therapy_exercises_screen/therapy_exercises_screen.dart';
 import 'package:soulnest/presentation/theme/text_theme.dart';
 
@@ -59,15 +55,8 @@ class _AppState extends State<App> {
           "/counselor-profile": (context) => const CounselorProfile(),
           "/user-profile": (context) => const ProfilePage(),
           "/therapy-exercises": (context) => const TherapyExercisesPage(),
-<<<<<<< HEAD
-          "/splash_screen": (context) => const SplashScreen(),
-          "/signup_interests": (context) => const SignUp_Interests(),
-          "/chatbot_screen": (context) => const ChatScreen(),
-          "/find_therapists": (context) => const FindTherapists(),
-=======
-          "/sign-up-screen-02": (context) =>  SignupPage2(),
-          "/sign-up-screen-04": (context) =>  SignupPage4(),
->>>>>>> signup-merge
+          "/sign-up-screen-02": (context) => SignupPage2(),
+          "/sign-up-screen-04": (context) => SignupPage4(),
         },
       ),
     );
