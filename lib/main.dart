@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:soulnest/data/data.dart';
+import 'package:soulnest/presentation/screens/chatbot_screen/chat_screen.dart';
 import 'package:soulnest/presentation/screens/counselor_profile_screen/counselor_profile.dart';
+import 'package:soulnest/presentation/screens/find_therapists_screen/find_therapists_screen.dart';
 import 'package:soulnest/presentation/screens/home_screen/home_screen.dart';
 import 'package:soulnest/presentation/screens/interests_screen/signup_interests.dart';
 import 'package:soulnest/presentation/screens/login_screen/login_screen.dart';
@@ -53,6 +55,8 @@ class _AppState extends State<App> {
           "/therapy-exercises": (context) => const TherapyExercisesPage(),
           "/splash_screen": (context) => const SplashScreen(),
           "/signup_interests": (context) => const SignUp_Interests(),
+          "/chatbot_screen": (context) => const ChatScreen(),
+          "/find_therapists": (context) => const FindTherapists(),
         },
       ),
     );
