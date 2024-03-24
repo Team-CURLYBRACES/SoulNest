@@ -19,8 +19,6 @@ class DoctorsService {
           image: e['image'],
         );
       }).toList();
-      print(response.statusCode);
-      print("Doctors: $doctors");
       return doctors;
     }
 

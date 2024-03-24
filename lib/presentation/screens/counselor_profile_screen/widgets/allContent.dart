@@ -39,7 +39,7 @@ class AllContent extends StatelessWidget {
                           )
                         : Container(
                             decoration: BoxDecoration(
-                              color: const Color.fromARGB(255, 71, 105, 255),
+                              color: const Color.fromRGBO(27, 143, 199, 1),
                               borderRadius: BorderRadius.circular(100),
                             ),
                             child: Center(
@@ -110,38 +110,51 @@ class AllContent extends StatelessWidget {
                     borderRadius: BorderRadius.circular(20),
                     child: SizedBox(
                       height: MediaQuery.of(context).size.height * 0.4,
-                      child: ListView(
-                        shrinkWrap: true,
-                        children: [
-                          const Text(
-                            'Description',
-                            style: TextStyle(
-                              color: Color.fromRGBO(0, 0, 0, 1),
-                              fontSize: 18,
-                              fontWeight: FontWeight.w600,
+                      child: Padding(
+                        padding:
+                            const EdgeInsets.only(left: 20, right: 20, top: 20),
+                        child: Column(
+                          children: [
+                            Expanded(
+                              child: ListView(
+                                // padding:
+                                // const EdgeInsets.only(left: 20, right: 20, top: 20), //  if this is added then the shedule will not be visible properly
+                                // shrinkWrap: true,
+                                children: [
+                                  const Text(
+                                    'Description',
+                                    style: TextStyle(
+                                      color: Color.fromRGBO(0, 0, 0, 1),
+                                      fontSize: 18,
+                                      fontWeight: FontWeight.w600,
+                                    ),
+                                  ),
+                                  const SizedBox(height: 10),
+                                  Text(
+                                    data.doctors[data.currentIndex].description,
+                                    style: TextStyle(
+                                      color: Colors.grey[600],
+                                      fontSize: 16,
+                                      fontWeight: FontWeight.w600,
+                                      leadingDistribution:
+                                          TextLeadingDistribution.even,
+                                    ),
+                                  ),
+                                  const SizedBox(height: 10),
+                                  const Text(
+                                    'Schedules',
+                                    style: TextStyle(
+                                      color: Color.fromRGBO(0, 0, 0, 1),
+                                      fontSize: 18,
+                                      fontWeight: FontWeight.w600,
+                                    ),
+                                  ),
+                                  const Shedule()
+                                ],
+                              ),
                             ),
-                          ),
-                          const SizedBox(height: 10),
-                          Text(
-                            data.doctors[data.currentIndex].description,
-                            style: TextStyle(
-                              color: Colors.grey[600],
-                              fontSize: 16,
-                              fontWeight: FontWeight.w600,
-                              leadingDistribution: TextLeadingDistribution.even,
-                            ),
-                          ),
-                          const SizedBox(height: 10),
-                          const Text(
-                            'Schedules',
-                            style: TextStyle(
-                              color: Color.fromRGBO(0, 0, 0, 1),
-                              fontSize: 18,
-                              fontWeight: FontWeight.w600,
-                            ),
-                          ),
-                          const Shedule()
-                        ],
+                          ],
+                        ),
                       ),
                     ),
                   )
