@@ -4,7 +4,7 @@ import 'package:soulnest/models/doctor.dart';
 
 class DoctorsService {
   Future<List<Doctor>> getAllDoctors() async {
-    const url = 'https://mocki.io/v1/7d40e625-efb1-4b7a-a1fe-7aa8722d9093';
+    const url = 'https://mocki.io/v1/f8cb48cd-376e-429c-9286-7c7e7c7ac85c';
     final uri = Uri.parse(url);
     final response = await http.get(uri);
     if (response.statusCode == 200) {
