@@ -49,6 +49,8 @@ class _AppState extends State<App> {
           "/counselor-profile": (context) => const CounselorProfile(),
           "/user-profile": (context) => const ProfilePage(),
           "/therapy-exercises": (context) => const TherapyExercisesPage(),
+          "/sign-up-02": (context) => const SignupPage2(),
+          "/sign-up-04": (context) => const SignupPage4(),
         },
       ),
     );
