@@ -14,7 +14,7 @@ class SignUp extends StatelessWidget {
         ),
         TextButton(
           onPressed: () {
-            Navigator.pushNamed(context, "/sign-up");
+            Navigator.pushNamed(context, "/sign_up_screen");
           },
           child: Text.rich(
             TextSpan(

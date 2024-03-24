@@ -21,7 +21,7 @@ class BarGraph extends StatelessWidget {
     bardData.inisializedBarData();
     return BarChart(
       BarChartData(
-        maxY: 60,
+        maxY: 100,
         minY: 0,
         gridData: const FlGridData(show: false),
         borderData: FlBorderData(show: false),
@@ -45,7 +45,7 @@ class BarGraph extends StatelessWidget {
                   width: 14,
                   backDrawRodData: BackgroundBarChartRodData(
                     show: true,
-                    toY: 60,
+                    toY: 105,
                     color: const Color.fromARGB(156, 188, 217, 235),
                   ),
                 ),

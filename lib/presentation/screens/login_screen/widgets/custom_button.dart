@@ -20,7 +20,7 @@ class CustomeButton extends StatelessWidget {
               Color.fromARGB(255, 0, 61, 110),
             )),
             onPressed: () {
-              Navigator.pushNamed(context, "/home");
+              Navigator.pushNamed(context, "/sign-up-screen-02");
             },
             child: Text(
               buttonText,

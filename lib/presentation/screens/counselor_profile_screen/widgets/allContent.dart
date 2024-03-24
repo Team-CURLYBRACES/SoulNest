@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import 'package:soulnest/data/data.dart';
-import 'package:soulnest/presentation/screens/counselor_profile_screen/widgets/shedule.dart';
 import 'package:soulnest/presentation/screens/counselor_profile_screen/widgets/counselorDetailIcons.dart';
+import 'package:soulnest/presentation/screens/counselor_profile_screen/widgets/shedule.dart';
+import 'package:soulnest/presentation/screens/counselor_profile_screen/widgets/bookSessionButton.dart';
+import 'package:soulnest/providers/doctors_provider.dart';
 
 class AllContent extends StatelessWidget {
   const AllContent({super.key});
@@ -13,7 +14,7 @@ class AllContent extends StatelessWidget {
 
     return Positioned(
       top: size.height * 0.17,
-      child: Consumer<Data>(
+      child: Consumer<DoctorsProvider>(
         builder: (context, data, child) => Row(
           children: [
             SizedBox(
@@ -31,17 +32,32 @@ class AllContent extends StatelessWidget {
                         width: 5,
                       ),
                     ),
-                    child: ClipRRect(
-                      borderRadius: BorderRadius.circular(100),
-                      child: Image.asset(
-                        data.therapists[data.currentIndex].imageUrl,
-                        fit: BoxFit.cover,
-                      ),
-                    ),
+                    child: data.doctors[data.currentIndex].image.isNotEmpty
+                        ? Image.network(
+                            data.doctors[data.currentIndex].image,
+                            fit: BoxFit.cover,
+                          )
+                        : Container(
+                            decoration: BoxDecoration(
+                              color: const Color.fromRGBO(27, 143, 199, 1),
+                              borderRadius: BorderRadius.circular(100),
+                            ),
+                            child: Center(
+                              child: Text(
+                                data.doctors[data.currentIndex].name[4]
+                                    .toUpperCase(),
+                                style: const TextStyle(
+                                  color: Colors.white,
+                                  fontSize: 40,
+                                  fontWeight: FontWeight.bold,
+                                ),
+                              ),
+                            ),
+                          ),
                   ),
                   const SizedBox(height: 10),
                   Text(
-                    data.therapists[data.currentIndex].name,
+                    data.doctors[data.currentIndex].name,
                     style: const TextStyle(
                       color: Color.fromRGBO(0, 0, 0, 1),
                       fontSize: 22,
@@ -49,7 +65,7 @@ class AllContent extends StatelessWidget {
                     ),
                   ),
                   Text(
-                    data.therapists[data.currentIndex].occupation,
+                    data.doctors[data.currentIndex].specialisation,
                     style: const TextStyle(
                       color: Color.fromRGBO(0, 0, 0, 0.7),
                       fontWeight: FontWeight.w500,
@@ -60,25 +76,25 @@ class AllContent extends StatelessWidget {
                   Row(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
-                      const CounselorDetailIcons(
-                        value: "Rs. 5000",
+                      CounselorDetailIcons(
+                        value: data.doctors[data.currentIndex].charge,
                         subtitle: "per hour",
-                        iconType: Icon(
+                        iconType: const Icon(
                           Icons.attach_money,
                           color: Colors.white,
                         ),
                       ),
-                      const CounselorDetailIcons(
-                        value: "5 years",
-                        iconType: Icon(
+                      CounselorDetailIcons(
+                        value: data.doctors[data.currentIndex].experience,
+                        iconType: const Icon(
                           Icons.access_time,
                           color: Colors.white,
                         ),
                         subtitle: "Experiance",
                       ),
-                      CounselorDetailIcons(
-                        value: data.therapists[data.currentIndex].rating,
-                        iconType: const Icon(
+                      const CounselorDetailIcons(
+                        value: "4.9",
+                        iconType: Icon(
                           Icons.star,
                           color: Colors.white,
                         ),
@@ -94,40 +110,52 @@ class AllContent extends StatelessWidget {
                     borderRadius: BorderRadius.circular(20),
                     child: SizedBox(
                       height: MediaQuery.of(context).size.height * 0.4,
-                      child: ListView(
+                      child: Padding(
                         padding:
                             const EdgeInsets.only(left: 20, right: 20, top: 20),
-                        shrinkWrap: true,
-                        children: [
-                          const Text(
-                            'Description',
-                            style: TextStyle(
-                              color: Color.fromRGBO(0, 0, 0, 1),
-                              fontSize: 18,
-                              fontWeight: FontWeight.w600,
+                        child: Column(
+                          children: [
+                            Expanded(
+                              child: ListView(
+                                // padding:
+                                // const EdgeInsets.only(left: 20, right: 20, top: 20), //  if this is added then the shedule will not be visible properly
+                                // shrinkWrap: true,
+                                children: [
+                                  const Text(
+                                    'Description',
+                                    style: TextStyle(
+                                      color: Color.fromRGBO(0, 0, 0, 1),
+                                      fontSize: 18,
+                                      fontWeight: FontWeight.w600,
+                                    ),
+                                  ),
+                                  const SizedBox(height: 10),
+                                  Text(
+                                    data.doctors[data.currentIndex].description,
+                                    style: TextStyle(
+                                      color: Colors.grey[600],
+                                      fontSize: 16,
+                                      fontWeight: FontWeight.w600,
+                                      leadingDistribution:
+                                          TextLeadingDistribution.even,
+                                    ),
+                                  ),
+                                  const SizedBox(height: 10),
+                                  const Text(
+                                    'Schedules',
+                                    style: TextStyle(
+                                      color: Color.fromRGBO(0, 0, 0, 1),
+                                      fontSize: 18,
+                                      fontWeight: FontWeight.w600,
+                                    ),
+                                  ),
+                                  const Shedule(),
+                                  const BookSessionButton(),
+                                ],
+                              ),
                             ),
-                          ),
-                          const SizedBox(height: 10),
-                          Text(
-                            'MBBS (UK), MRCP(UK), Board Certified in Int. Medicine (U.S.A). The founder of Healthy Life Allergists Clinic.',
-                            style: TextStyle(
-                              color: Colors.grey[600],
-                              fontSize: 16,
-                              fontWeight: FontWeight.w600,
-                              leadingDistribution: TextLeadingDistribution.even,
-                            ),
-                          ),
-                          const SizedBox(height: 10),
-                          const Text(
-                            'Schedules',
-                            style: TextStyle(
-                              color: Color.fromRGBO(0, 0, 0, 1),
-                              fontSize: 18,
-                              fontWeight: FontWeight.w600,
-                            ),
-                          ),
-                          const Shedule()
-                        ],
+                          ],
+                        ),
                       ),
                     ),
                   )

@@ -1,9 +1,12 @@
+// import 'dart:math';
 import 'package:flutter/material.dart';
+// import 'package:flutter/widgets.dart';
 import 'package:soulnest/presentation/screens/find_therapists_screen/find_therapists_screen.dart';
 import 'package:soulnest/presentation/screens/home_screen/widgets/home_screen_widget.dart';
 import 'package:soulnest/presentation/screens/profile_screen/profile_screen.dart';
 import 'package:soulnest/presentation/screens/therapy_exercises_screen/therapy_exercises_screen.dart';
 import 'package:soulnest/presentation/screens/chatbot_screen/chat_screen.dart';
+import 'package:logger/logger.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
@@ -14,16 +17,20 @@ class HomeScreen extends StatefulWidget {
 
 class _HomeScreenState extends State<HomeScreen> {
   int index = 0;
-  final screens = [
-    const HomeScreenWidget(),
-    const FindTherapists(),
-    const ChatScreen(),
-    const TherapyExercisesPage(),
-    const ProfilePage(),
-  ];
+  final logger = Logger();
 
   @override
   Widget build(BuildContext context) {
+    final String? token = ModalRoute.of(context)!.settings.arguments as String?;
+    logger.d(token);
+    final screens = [
+      const HomeScreenWidget(),
+      const FindTherapists(),
+      ChatScreen(token: token),
+      const TherapyExercisesPage(),
+      const ProfilePage(),
+    ];
+
     return Scaffold(
       bottomNavigationBar: NavigationBarTheme(
         data: NavigationBarThemeData(
