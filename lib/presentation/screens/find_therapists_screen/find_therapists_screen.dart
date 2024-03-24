@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:soulnest/models/doctor.dart';
 import 'package:soulnest/presentation/common/profile_screen_header.dart';
-import 'package:soulnest/models/data.dart';
 import 'package:soulnest/providers/doctors_provider.dart';
 
 class FindTherapists extends StatefulWidget {
@@ -71,7 +70,7 @@ class _FindTherapistsState extends State<FindTherapists> {
                                     child: TherapistBox(
                                       name: therapist.name,
                                       imageUrl: therapist.image,
-                                      rating: therapist.experience,
+                                      rating: "4.9",
                                       index: index,
                                       occupation: therapist.specialisation,
                                     ),
@@ -158,7 +157,7 @@ class TherapistBox extends StatelessWidget {
   Widget build(BuildContext context) {
     return GestureDetector(
       onTap: () {
-        Provider.of<Data>(context, listen: false).setIndex(index);
+        Provider.of<DoctorsProvider>(context, listen: false).setIndex(index);
         Navigator.pushNamed(context, '/counselor-profile');
       },
       child: Row(
@@ -183,64 +182,71 @@ class TherapistBox extends StatelessWidget {
                   child: Container(
                     height: 70,
                     width: 70,
-                    color: Color.fromARGB(255, 71, 105, 255),
+                    color: const Color.fromRGBO(27, 143, 199, 1),
                     child: Center(
-                      child: Text(name[4],
-                          style: Theme.of(context)
-                              .textTheme
-                              .headlineMedium
-                              ?.copyWith(color: Colors.white)),
-                    ),
+                        child: Text(name[4],
+                            style: Theme.of(context)
+                                .textTheme
+                                .headlineMedium
+                                ?.copyWith(color: Colors.white))),
                   ),
                 ),
           const SizedBox(
             width: 20,
           ),
-          Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              Text(name, style: Theme.of(context).textTheme.headlineMedium),
-              const SizedBox(
-                height: 5,
-              ),
-              Text(occupation,
+          Expanded(
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Text(
+                  name,
+                  style: Theme.of(context).textTheme.headlineMedium,
+                  overflow: TextOverflow.ellipsis,
+                ),
+                const SizedBox(
+                  height: 5,
+                ),
+                Text(
+                  _truncateOccupation(occupation),
                   style: Theme.of(context)
                       .textTheme
                       .headlineSmall
-                      ?.copyWith(color: Colors.grey[600])),
-              const SizedBox(
-                height: 8,
-              ),
-              Row(
-                children: [
-                  const Icon(
-                    Icons.star,
-                    color: Color.fromRGBO(255, 213, 0, 1),
-                  ),
-                  const SizedBox(
-                    width: 5,
-                  ),
-                  Text(
-                    rating,
-                    style: Theme.of(context).textTheme.titleLarge?.copyWith(
-                          color: const Color.fromRGBO(71, 71, 71, 1),
-                        ),
-                  ),
-                  const SizedBox(
-                    width: 10,
-                  ),
-                  Text(
-                    '(100 reviews)',
-                    style: Theme.of(context).textTheme.titleMedium?.copyWith(
-                          color: Colors.grey,
-                        ),
-                  ),
-                ],
-              )
-            ],
+                      ?.copyWith(color: Colors.grey[600]),
+                  overflow: TextOverflow.ellipsis,
+                ),
+                const SizedBox(
+                  height: 8,
+                ),
+                Row(
+                  children: [
+                    const Icon(
+                      Icons.star,
+                      color: Color.fromRGBO(255, 213, 0, 1),
+                    ),
+                    const SizedBox(
+                      width: 5,
+                    ),
+                    Text(
+                      rating,
+                      style: Theme.of(context).textTheme.titleLarge?.copyWith(
+                            color: const Color.fromRGBO(71, 71, 71, 1),
+                          ),
+                    ),
+                    const SizedBox(
+                      width: 10,
+                    ),
+                    Text(
+                      '(100 reviews)',
+                      style: Theme.of(context).textTheme.titleMedium?.copyWith(
+                            color: Colors.grey,
+                          ),
+                    ),
+                  ],
+                )
+              ],
+            ),
           ),
-          const Spacer(),
           const Icon(
             Icons.arrow_forward_ios,
             color: Color.fromRGBO(0, 83, 145, 1),
@@ -251,5 +257,12 @@ class TherapistBox extends StatelessWidget {
         ],
       ),
     );
+  }
+
+  String _truncateOccupation(String occupation) {
+    const maxLength = 20;
+    return occupation.length <= maxLength
+        ? occupation
+        : '${occupation.substring(0, maxLength)}...';
   }
 }
