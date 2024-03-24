@@ -10,13 +10,13 @@ class BookSessionButton extends StatelessWidget {
       width: MediaQuery.of(context).size.width * 0.8,
       height: 50,
       decoration: BoxDecoration(
-        color: const Color.fromRGBO(0, 83, 145, 1),
+        color: const Color.fromRGBO(0, 100, 0, 0.8),
         borderRadius: BorderRadius.circular(10),
       ),
-      child: Center(
+      child: const Center(
         child: Text(
           'Book a session',
-          style: const TextStyle(
+          style: TextStyle(
             color: Colors.white,
             fontSize: 20,
             fontWeight: FontWeight.bold,
