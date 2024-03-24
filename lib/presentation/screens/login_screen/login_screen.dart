@@ -16,8 +16,10 @@ class LoginScreen extends StatelessWidget {
   final TextEditingController _usernameController = TextEditingController();
   final TextEditingController _passwordController = TextEditingController();
 
+ 
+
   Future<void> userLogin(BuildContext context) async {
-    const String url = 'https://3082-112-134-146-67.ngrok-free.app/users/login/';
+    const String url = 'https://801c-112-134-146-67.ngrok-free.app/users/login/';
     String email = _usernameController.text.trim();
     String password = _passwordController.text.trim();
 
@@ -30,9 +32,14 @@ class LoginScreen extends StatelessWidget {
           'password':password
         })
       );
+      var data = jsonDecode(response.body);
+      if(data != null) {
+        
+      }
+      String token = data['token'];
       log(response.body);
       if (response.statusCode == 200) {
-        Navigator.pushNamed(context, "/home");
+        Navigator.pushNamed(context, "/home", arguments: token);
       }
       else if (response.statusCode == 401) {
         log('Authorization unsuccessful');
