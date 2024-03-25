@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/widgets.dart';
 import 'package:soulnest/presentation/screens/sign_up_screen_02/widgets/my_textfield.dart';
 import 'package:soulnest/presentation/screens/sign_up_screen_02/widgets/square_tile.dart';
 
@@ -17,32 +18,29 @@ class SignupPage2 extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
         backgroundColor: Colors.white,
-        body: SafeArea(
-            child: Center(
-              child: Column(
+        body: Column(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  const SizedBox(height: 50),
+                  // const SizedBox(height: 50),
 
                   // logo
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: const [
-                      // google button
-                      SquareTile(imagePath: 'lib/Logo/soulNest.png'),
+                  Container(
+                  alignment:Alignment.center,
+                    child:Image.asset("assets\logos\soulNest.png"),
 
-                      SizedBox(width: 25),
+                      SizedBox(width: 25)),
 
 
                     ],
                   ),
 
-                  const SizedBox(height: 50),
+                  SizedBox(height: 50),
 
                   // welcome back, you've been missed!
                   Text(
                     'Personal Details',
                     style: TextStyle(
+                      fontWeight: FontWeight.bold,
                       color: Colors.black,
                       fontSize: 18,
                     ),
@@ -111,10 +109,6 @@ class SignupPage2 extends StatelessWidget {
                       ),
                     ],
                   ),
-                ],
               ),
-            ),
-            ),
-        );
     }
 }
