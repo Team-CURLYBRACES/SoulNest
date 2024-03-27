@@ -8,6 +8,7 @@ import 'package:soulnest/presentation/screens/login_screen/widgets/sign_in_logos
 import 'package:soulnest/presentation/screens/login_screen/widgets/sign_up.dart';
 import 'package:soulnest/presentation/screens/login_screen/widgets/title_text.dart';
 import 'package:logger/logger.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 class LoginScreen extends StatelessWidget {
   LoginScreen({super.key});
@@ -16,8 +17,7 @@ class LoginScreen extends StatelessWidget {
   final TextEditingController _passwordController = TextEditingController();
 
   Future<void> userLogin(BuildContext context) async {
-    const String url =
-        'https://801c-112-134-146-67.ngrok-free.app/users/login/';
+    const String url = 'https://ba50-112-134-151-108.ngrok-free.app/users/login/';
     String email = _usernameController.text.trim();
     String password = _passwordController.text.trim();
 
@@ -25,18 +25,19 @@ class LoginScreen extends StatelessWidget {
       final response = await http.post(Uri.parse(url),
           headers: {'Content-Type': 'application/json'},
           body: jsonEncode({'email': email, 'password': password}));
+
       var data = jsonDecode(response.body);
-      if (data != null) {}
-      String token = data['token'];
-      log(response.body);
+      String token = data['token'] != null ? data['token'] : '';
+      saveData(token);
       if (response.statusCode == 200) {
         Navigator.pushNamed(context, "/home", arguments: token);
-      } else if (response.statusCode == 401) {
+      } 
+      else if (response.statusCode == 401) {
         log('Authorization unsuccessful');
       }
     } catch (e) {
       // Exception handling
-      print('Exception caught: $e');
+      log('Exception caught: $e');
     }
   }
 
@@ -189,5 +190,10 @@ class LoginScreen extends StatelessWidget {
         ),
       ),
     );
+  }
+
+  Future<void> saveData(String data) async {
+    SharedPreferences prefs = await SharedPreferences.getInstance();
+    prefs.setString('id', data);
   }
 }
