@@ -1,4 +1,4 @@
-// import 'dart:math';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 // import 'package:flutter/widgets.dart';
 import 'package:soulnest/presentation/screens/find_therapists_screen/find_therapists_screen.dart';
@@ -7,6 +7,7 @@ import 'package:soulnest/presentation/screens/profile_screen/profile_screen.dart
 import 'package:soulnest/presentation/screens/therapy_exercises_screen/therapy_exercises_screen.dart';
 import 'package:soulnest/presentation/screens/chatbot_screen/chat_screen.dart';
 import 'package:logger/logger.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
@@ -16,17 +17,23 @@ class HomeScreen extends StatefulWidget {
 }
 
 class _HomeScreenState extends State<HomeScreen> {
+  late String _token;
   int index = 0;
   final logger = Logger();
 
   @override
+  void initState() {
+    super.initState();
+    _loadToken();
+  }
+
+  @override
   Widget build(BuildContext context) {
     final String? token = ModalRoute.of(context)!.settings.arguments as String?;
-    logger.d(token);
     final screens = [
       const HomeScreenWidget(),
       const FindTherapists(),
-      ChatScreen(token: token),
+      const ChatScreen(),
       const TherapyExercisesPage(),
       const ProfilePage(),
     ];
@@ -112,5 +119,15 @@ class _HomeScreenState extends State<HomeScreen> {
       ),
       body: screens[index],
     );
+  }
+
+  Future<void> _loadToken() async {
+    SharedPreferences prefs = await SharedPreferences.getInstance();
+    String? token = prefs.getString('id');
+    if (token != null) {
+      setState(() {
+        _token = token; // Store the fetched token in the _token variable
+      });
+    }
   }
 }

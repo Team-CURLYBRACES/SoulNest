@@ -1,19 +1,22 @@
 import 'dart:convert';
+import 'dart:developer';
 import 'package:http/http.dart' as http;
 import 'package:dialog_flowtter/dialog_flowtter.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'message_bubble.dart';
 import 'package:logger/logger.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 class ChatScreen extends StatefulWidget {
-  final String? token;
-  const ChatScreen({Key? key, this.token}) : super(key: key);
+  const ChatScreen({super.key});
 
   @override
   State<ChatScreen> createState() => _ChatScreenState();
 }
 
 class _ChatScreenState extends State<ChatScreen> {
+  late String _id = '';
   late DialogFlowtter dialogFlowtter;
   final TextEditingController _controller = TextEditingController();
   List<Map<String, dynamic>> messages = [];
@@ -22,37 +25,29 @@ class _ChatScreenState extends State<ChatScreen> {
   void initState() {
     super.initState();
     DialogFlowtter.fromFile().then((instance) => dialogFlowtter = instance);
+    _loadID();
   }
 
   @override
   Widget build(BuildContext context) {
-    final logger = Logger();
-    logger.d(widget.token);
-    String token = widget.token as String;
-    var size;
+    final  logger = Logger();
+    log(_id);
     return Scaffold(
-        body: Container(
-      width: double.infinity,
-      decoration: const BoxDecoration(
-        gradient: LinearGradient(
-          colors: [
-            Color.fromRGBO(0, 31, 110, 1),
-            Color.fromRGBO(31, 159, 212, 1)
-          ],
-          begin: Alignment.topCenter,
-          end: Alignment.bottomRight,
-        ),
-      ),
-      child: Padding(
-        padding: EdgeInsets.only(top: size.height * 0.009, left: 20, right: 20),
+      body: Container(
+        width: double.maxFinite,
+        height: double.maxFinite,
+        decoration: const BoxDecoration(
+            gradient: LinearGradient(colors: [
+          Color.fromRGBO(0, 32, 111, 1),
+          Color.fromRGBO(27, 143, 199, 1)
+        ])),
         child: Column(
           children: [
             // For the messages sent between bot and user
             Expanded(
-              child: MessageBubble(
-                messages: messages,
-              ),
-            ),
+                child: MessageBubble(
+              messages: messages,
+            )),
 
             // For the messages that the user sends
             Container(
@@ -73,7 +68,7 @@ class _ChatScreenState extends State<ChatScreen> {
                   IconButton(
                       onPressed: () {
                         sendMessage(_controller.text);
-                        sendPromptToDB(_controller.text, token);
+                        sendPromptToDB(_controller.text, _id);
                         _controller.clear();
                       },
                       icon: const Icon(
@@ -86,7 +81,7 @@ class _ChatScreenState extends State<ChatScreen> {
           ],
         ),
       ),
-    ));
+    );
   }
 
   sendMessage(String text) async {
@@ -114,18 +109,28 @@ class _ChatScreenState extends State<ChatScreen> {
   }
 
   sendPromptToDB(String text, String token) {
-    String url =
-        "https://801c-112-134-146-67.ngrok-free.app/users/update_chat/";
-    Map<String, dynamic> data = {"text": text, "is_stress_checked": "false"};
-    String jsonData = jsonEncode(data);
 
-    final response = http.post(
-      Uri.parse(url),
-      headers: <String, String>{
-        'Content-Type': 'application/json',
-        'Authorization': 'Bearer $token',
-      },
-      body: jsonData,
+    String url = "https://ba50-112-134-151-108.ngrok-free.app/users/update_chat/";
+      Map<String, dynamic> data = {"text": text, "is_stress_checked": "false"};
+      String jsonData = jsonEncode(data);
+
+      final response = http.post(
+        Uri.parse(url),
+        headers: <String, String>{
+          'Content-Type': 'application/json',
+          'Authorization': 'Bearer $token',
+        },
+        body: jsonData,
     );
+  }
+
+  Future<void> _loadID() async {
+    SharedPreferences prefs = await SharedPreferences.getInstance();
+    String? token = prefs.getString('id');
+    if (token != null) {
+      setState(() {
+        _id = _id == '' ? token : ''; 
+      });
+    }
   }
 }
