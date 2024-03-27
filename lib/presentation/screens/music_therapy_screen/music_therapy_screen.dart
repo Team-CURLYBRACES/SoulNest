@@ -11,6 +11,7 @@ class MusicTherapy extends StatelessWidget {
       children: [
         SmallHeaderWithBtn(title: "Music Therapy"),
       ],
-    ));
+     )
+    );
   }
 }

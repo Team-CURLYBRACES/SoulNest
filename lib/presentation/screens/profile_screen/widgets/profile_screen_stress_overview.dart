@@ -117,8 +117,7 @@ class StressOverView extends StatelessWidget {
                               stressLevel,
                               style: Theme.of(context)
                                   .textTheme
-                                  .displaySmall
-                                  ?.copyWith(
+                                  .displaySmall?.copyWith(
                                     fontSize: 16,
                                     fontWeight: FontWeight.w600,
                                     color: stressColor,

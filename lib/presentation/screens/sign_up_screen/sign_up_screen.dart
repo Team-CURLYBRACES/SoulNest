@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:soulnest/presentation/screens/login_screen/widgets/custom_button.dart';
 import 'package:soulnest/presentation/screens/login_screen/widgets/input_filed.dart';
-import 'package:soulnest/presentation/screens/sign_up_screen/widgets/info_area.dart';
+import 'package:soulnest/presentation/screens/sign_up_screen/info_area.dart';
 
 void main() {
   runApp(const SignUpScreen());

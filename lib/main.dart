@@ -8,7 +8,6 @@ import 'package:soulnest/presentation/screens/login_screen/login_screen.dart';
 import 'package:soulnest/presentation/screens/music_therapy_screen/music_therapy_screen.dart';
 import 'package:soulnest/presentation/screens/profile_screen/profile_screen.dart';
 import 'package:soulnest/presentation/screens/sign_up_screen/sign_up_screen.dart';
-import 'package:soulnest/presentation/screens/sign_up_screen_02/sign_up_screen_02.dart';
 import 'package:soulnest/presentation/screens/sign_up_screen_04/sign_up_screen_04.dart';
 import 'package:soulnest/presentation/screens/signupscreen2/signupscreen2.dart';
 import 'package:soulnest/presentation/screens/splash_screen/splash_screen.dart';

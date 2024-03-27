@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:soulnest/presentation/screens/login_screen/widgets/input_filed.dart';
-import 'package:soulnest/presentation/screens/signupscreen2/widgets/info_area.dart';
-import 'package:soulnest/presentation/screens/signupscreen2/widgets/next_button.dart';
-import 'package:soulnest/presentation/screens/signupscreen2/widgets/previous_button.dart';
+import 'package:soulnest/presentation/screens/signupscreen2/info_area.dart';
+import 'package:soulnest/presentation/screens/signupscreen2/next_button.dart';
+import 'package:soulnest/presentation/screens/signupscreen2/previous_button.dart';
 
 void main() {
   runApp(const SignUpScreen2());

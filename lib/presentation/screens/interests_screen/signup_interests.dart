@@ -41,8 +41,8 @@ class _MyWidgetState extends State<SignUp_Interests> {
               "Choose your interests",
               style: TextStyle(
                 fontFamily: "Poppins",
-                fontSize: 20,
-                fontWeight: FontWeight.w600,
+                fontSize: 18,
+                fontWeight: FontWeight.bold,
               ),
             ),
           ),
@@ -56,7 +56,7 @@ class _MyWidgetState extends State<SignUp_Interests> {
               style: TextStyle(
                 fontFamily: "Poppins",
                 fontSize: 16,
-                fontWeight: FontWeight.w500,
+                fontWeight: FontWeight.w400,
               ),
             ),
           ),
@@ -119,7 +119,7 @@ class _MyWidgetState extends State<SignUp_Interests> {
           style: TextStyle(
             fontFamily: "Poppins",
             fontSize: 16,
-            fontWeight: FontWeight.w500,
+            
           )
         ),
         onChanged: (value) => setState(() => checkbox.value = value!),
