@@ -13,11 +13,13 @@ class PreviousButton extends StatelessWidget {
   Widget build(BuildContext context) {
     return GestureDetector(
         child: OutlinedButton(
-            style: OutlinedButton.styleFrom(
-              padding: EdgeInsetsDirectional.fromSTEB(40, 15, 40, 15),
-                side: BorderSide(
-                    color: Color.fromARGB(255, 0, 83, 145), width: 1.50)),
-            onPressed: onPressed,
-            child: child));
+          onPressed: onPressed,
+          style: OutlinedButton.styleFrom(
+            padding: EdgeInsetsDirectional.fromSTEB(40, 15, 40, 15),
+            side: BorderSide(
+              color: Color.fromARGB(255, 0, 83, 145), width: 1.50)
+              ),
+            child: child)
+          );
   }
 }

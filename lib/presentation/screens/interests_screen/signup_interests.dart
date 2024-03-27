@@ -79,7 +79,7 @@ class _MyWidgetState extends State<SignUp_Interests> {
             child: Row(
               children: <Widget>[
                 PreviousButton(
-                    onPressed: () {},
+                    onPressed: () => Navigator.pushNamed(context, '/signupscreen2'),
                     child: Text(
                       "Previous",
                       style: TextStyle(
@@ -100,7 +100,8 @@ class _MyWidgetState extends State<SignUp_Interests> {
                         fontSize: 16,
                         fontWeight: FontWeight.w600,
                       ),
-                    )),
+                    )
+                  ),
               ],
             ),
           )

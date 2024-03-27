@@ -33,7 +33,7 @@ class StressOverView extends StatelessWidget {
       stressColor = const Color.fromARGB(255, 214, 139, 0);
     } else {
       stressLevel = 'High Stress';
-      stressColor = const Color.fromARGB(255, 125, 12, 4);
+      stressColor = const Color.fromARGB(255, 176, 77, 2);
     }
 
     Size size = MediaQuery.of(context).size;

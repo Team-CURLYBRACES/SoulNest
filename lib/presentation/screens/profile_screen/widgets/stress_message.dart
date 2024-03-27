@@ -34,7 +34,7 @@ class StressMessageBox extends StatelessWidget {
         padding: EdgeInsets.all(16),
         margin: EdgeInsets.symmetric(horizontal: 16),
         decoration: BoxDecoration(
-          color: stressLevel == 'Normal' ? Color.fromARGB(255, 9, 74, 10) : stressLevel == 'Mild Stress' ? Color.fromARGB(255, 181, 122, 3) : Color.fromARGB(255, 125, 12, 4),
+          color: stressLevel == 'Normal' ? Color.fromARGB(255, 9, 74, 10) : stressLevel == 'Mild Stress' ? Color.fromARGB(255, 174, 121, 14) : Color.fromARGB(255, 176, 77, 2),
           borderRadius: BorderRadius.circular(10),
         ),
         child: Text(

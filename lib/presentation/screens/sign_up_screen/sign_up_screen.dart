@@ -14,8 +14,7 @@ class SignUpScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     // ignore: prefer_const_constructors
     return Scaffold(
-      appBar: AppBar(),
-      body: const SafeArea(
+      body: Center(
         child: SingleChildScrollView(
           child: Padding(
             padding: EdgeInsets.symmetric(horizontal: 30),

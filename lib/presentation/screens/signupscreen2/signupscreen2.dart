@@ -5,11 +5,11 @@ import 'package:soulnest/presentation/screens/signupscreen2/widgets/next_button.
 import 'package:soulnest/presentation/screens/signupscreen2/widgets/previous_button.dart';
 
 void main() {
-  runApp(const SignUpScreen04());
+  runApp(const SignUpScreen2());
 }
 
-class SignUpScreen04 extends StatelessWidget {
-  const SignUpScreen04({Key? key});
+class SignUpScreen2 extends StatelessWidget {
+  const SignUpScreen2({Key? key});
 
   @override
   Widget build(BuildContext context) {
@@ -28,27 +28,27 @@ class SignUpScreen04 extends StatelessWidget {
               InfoArea(),
               const SizedBox(height: 20),
               InputFiled(
-                textFiledTitle: "Choose a cool username",
-                inputText: "username",
+                textFiledTitle: "Birthday",
+                inputText: "06/12/2002",
                 showText: false,
               ),
               const SizedBox(height: 20),
               InputFiled(
-                textFiledTitle: "Create a strong password",
-                inputText: "password",
+                textFiledTitle: "Gender",
+                inputText: "Male/Female/Other",
                 showText: true,
               ),
               const SizedBox(height: 20),
                 InputFiled(
-                  textFiledTitle: "Confirm password",
-                  inputText: "password",
+                  textFiledTitle: "Occupation",
+                  inputText: "Occupation",
                   showText: true,
               ),
               const SizedBox(height: 40),               
               Row(
                 children: <Widget>[
                   PreviousButton(
-                    onPressed: () => Navigator.pushNamed(context, '/signup_interests'),
+                    onPressed: () => Navigator.pushNamed(context, '/sign_up_screen'),
                     child: const Text(
                       "Previous",
                       style: TextStyle(
@@ -61,7 +61,7 @@ class SignUpScreen04 extends StatelessWidget {
                   ),
                   const SizedBox(width: 40),
                   NextButton(
-                    onTap: () => Navigator.pushNamed(context, '/home'),
+                    onTap: () => Navigator.pushNamed(context, '/signup_interests'),
                     child: const Text(
                       "Next",
                       style: TextStyle(
