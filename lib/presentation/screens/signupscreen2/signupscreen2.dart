@@ -1,8 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:soulnest/presentation/screens/login_screen/widgets/input_filed.dart';
 import 'package:soulnest/presentation/screens/signupscreen2/info_area.dart';
-import 'package:soulnest/presentation/screens/signupscreen2/next_button.dart';
-import 'package:soulnest/presentation/screens/signupscreen2/previous_button.dart';
 
 void main() {
   runApp(const SignUpScreen2());
@@ -45,10 +43,22 @@ class SignUpScreen2 extends StatelessWidget {
                   showText: true,
               ),
               const SizedBox(height: 40),               
-              Row(
+                            Row(
                 children: <Widget>[
-                  PreviousButton(
-                    onPressed: () => Navigator.pushNamed(context, '/sign_up_screen'),
+                  OutlinedButton(
+                    onPressed: () {
+                      Navigator.pushNamed(context, '/sign_up_screen');
+                    },
+                    style: OutlinedButton.styleFrom(
+                      padding: const EdgeInsets.fromLTRB(40, 15, 40, 15),
+                      side: const BorderSide(
+                        color: Color.fromARGB(255, 0, 83, 145),
+                        width: 1.5,
+                      ),
+                      shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(30),
+                      ),
+                    ),
                     child: const Text(
                       "Previous",
                       style: TextStyle(
@@ -60,26 +70,36 @@ class SignUpScreen2 extends StatelessWidget {
                     ),
                   ),
                   const SizedBox(width: 40),
-                  NextButton(
-                    onTap: () => Navigator.pushNamed(context, '/signup_interests'),
-                    child: const Text(
-                      "Next",
-                      style: TextStyle(
-                        color: Colors.white,
-                        fontFamily: "Poppins",
-                        fontSize: 16,
-                        fontWeight: FontWeight.w600,
+                  GestureDetector(
+                    onTap: () {
+                      Navigator.pushNamed(context, '/signup_interests');
+                    },
+                    child: Container(
+                      decoration: BoxDecoration(
+                        color: Color.fromARGB(255, 0, 83, 145),
+                        borderRadius: BorderRadius.circular(30),
+                      ),
+                      padding: const EdgeInsets.fromLTRB(56, 15, 56, 18),
+                      child: const Text(
+                        "Next",
+                        style: TextStyle(
+                          color: Colors.white,
+                          fontFamily: "Poppins",
+                          fontSize: 16,
+                          fontWeight: FontWeight.w600,
+                        ),
                       ),
                     ),
                   ),
-                ],
-              ),
               const SizedBox(height: 20),
             ],
           ),
+         ]
         ),
       ),
+     )
     );
+
   }
 }
 
