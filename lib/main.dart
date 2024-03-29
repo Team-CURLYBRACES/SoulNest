@@ -63,7 +63,8 @@ class _AppState extends State<App> {
           "/sign-up-screen-04": (context) => SignUpScreen04(),
           "/signup_interests": (context) => const SignUp_Interests(),
           "/find_therapists_screen": (context) => const FindTherapists(),
-          "/therapy_exercises_screen": (context) => const TherapyExercisesPage()
+          "/therapy_exercises_screen": (context) => const TherapyExercisesPage(),
+          "/login_screen": (context) => LoginScreen(),
         },
       ),
     );

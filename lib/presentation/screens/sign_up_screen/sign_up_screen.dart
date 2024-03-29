@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:soulnest/presentation/screens/login_screen/widgets/custom_button.dart';
+import 'package:soulnest/presentation/screens/sign_up_screen/custom_button.dart';
 import 'package:soulnest/presentation/screens/login_screen/widgets/input_filed.dart';
 import 'package:soulnest/presentation/screens/sign_up_screen/info_area.dart';
+import 'package:soulnest/presentation/screens/signupscreen2/next_button.dart';
+import 'package:soulnest/presentation/screens/signupscreen2/previous_button.dart';
 
 void main() {
   runApp(const SignUpScreen());
@@ -39,7 +41,35 @@ class SignUpScreen extends StatelessWidget {
               ),
               SizedBox(height: 10),
               SizedBox(height: 40),
-              CustomeButton(buttonText: "Next"),
+              Row(
+                children: <Widget>[
+                  PreviousButton(
+                    onPressed: () => Navigator.pushNamed(context, '/login_screen'),
+                    child: const Text(
+                      "Previous",
+                      style: TextStyle(
+                        color: Color.fromARGB(255, 0, 83, 145),
+                        fontFamily: "Poppins",
+                        fontSize: 16,
+                        fontWeight: FontWeight.w600,
+                      ),
+                    ),
+                  ),
+                  const SizedBox(width: 40),
+                  NextButton(
+                    onTap: () => Navigator.pushNamed(context, '/signupscreen2'),
+                    child: const Text(
+                      "Next",
+                      style: TextStyle(
+                        color: Colors.white,
+                        fontFamily: "Poppins",
+                        fontSize: 16,
+                        fontWeight: FontWeight.w600,
+                      ),
+                    ),
+                  ),
+                ],
+              ),
               SizedBox(height: 10),
               SizedBox(height: 20),
               SizedBox(height: 20),
