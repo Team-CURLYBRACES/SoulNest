@@ -1,13 +1,20 @@
+import 'dart:convert';
+import 'dart:developer';
+import 'package:http/http.dart' as http;
 import 'package:flutter/material.dart';
 import 'package:soulnest/presentation/screens/login_screen/widgets/input_filed.dart';
 import 'package:soulnest/presentation/screens/signupscreen2/info_area.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 void main() {
-  runApp(const SignUpScreen04());
+  runApp(SignUpScreen04());
 }
 
 class SignUpScreen04 extends StatelessWidget {
-  const SignUpScreen04({Key? key});
+  SignUpScreen04({Key? key});
+  final TextEditingController _usernameController = TextEditingController();
+  final TextEditingController _passwordController = TextEditingController();
+  final TextEditingController _confirmController = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
@@ -19,29 +26,119 @@ class SignUpScreen04 extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
               const SizedBox(height: 60),
-              Image(
+              const Image(
                 image: AssetImage("assets/logos/logo.png"),
               ),
               const SizedBox(height: 40),
-              InfoArea(),
+              const InfoArea(),
               const SizedBox(height: 20),
-              InputFiled(
-                textFiledTitle: "Choose a cool username",
-                inputText: "username",
-                showText: false,
-              ),
+
+              // Username Field
+              Column(
+                    children: [
+                      Row(
+                        children: [
+                          Text(
+                            "Choose a cool username",
+                            style: Theme.of(context).textTheme.bodyLarge,
+                          ),
+                        ],
+                      ),
+                      const SizedBox(
+                        height: 10,
+                      ),
+                      TextField(
+                        controller: _usernameController,
+                        obscureText: false,
+                        decoration: InputDecoration(
+                          filled: true,
+                          fillColor: const Color.fromRGBO(240, 240, 240, 100),
+                          hintText: "username",
+                          hintStyle: const TextStyle(
+                            color: Color.fromRGBO(0, 0, 0, 0.5),
+                          ),
+                          border: OutlineInputBorder(
+                            borderRadius: BorderRadius.circular(10),
+                            borderSide: const BorderSide(
+                              color: Colors.transparent,
+                            ),
+                          ),
+                        ),
+                      )
+                    ],
+                  ),
               const SizedBox(height: 20),
-              InputFiled(
-                textFiledTitle: "Create a strong password",
-                inputText: "password",
-                showText: true,
-              ),
+
+              // Password field
+
+              Column(
+                    children: [
+                      Row(
+                        children: [
+                          Text(
+                            "Create a strong password",
+                            style: Theme.of(context).textTheme.bodyLarge,
+                          ),
+                        ],
+                      ),
+                      const SizedBox(
+                        height: 10,
+                      ),
+                      TextField(
+                        controller: _passwordController,
+                        obscureText: false,
+                        decoration: InputDecoration(
+                          filled: true,
+                          fillColor: const Color.fromRGBO(240, 240, 240, 100),
+                          hintText: "password",
+                          hintStyle: const TextStyle(
+                            color: Color.fromRGBO(0, 0, 0, 0.5),
+                          ),
+                          border: OutlineInputBorder(
+                            borderRadius: BorderRadius.circular(10),
+                            borderSide: const BorderSide(
+                              color: Colors.transparent,
+                            ),
+                          ),
+                        ),
+                      )
+                    ],
+                  ),
               const SizedBox(height: 20),
-                InputFiled(
-                  textFiledTitle: "Confirm password",
-                  inputText: "password",
-                  showText: true,
-              ),
+              // Confirm password
+              Column(
+                    children: [
+                      Row(
+                        children: [
+                          Text(
+                            "Confirm password",
+                            style: Theme.of(context).textTheme.bodyLarge,
+                          ),
+                        ],
+                      ),
+                      const SizedBox(
+                        height: 10,
+                      ),
+                      TextField(
+                        controller: _confirmController,
+                        obscureText: false,
+                        decoration: InputDecoration(
+                          filled: true,
+                          fillColor: const Color.fromRGBO(240, 240, 240, 100),
+                          hintText: "password",
+                          hintStyle: const TextStyle(
+                            color: Color.fromRGBO(0, 0, 0, 0.5),
+                          ),
+                          border: OutlineInputBorder(
+                            borderRadius: BorderRadius.circular(10),
+                            borderSide: const BorderSide(
+                              color: Colors.transparent,
+                            ),
+                          ),
+                        ),
+                      )
+                    ],
+                  ),
               const SizedBox(height: 40),               
                             Row(
                 children: <Widget>[
@@ -72,11 +169,16 @@ class SignUpScreen04 extends StatelessWidget {
                   const SizedBox(width: 40),
                   GestureDetector(
                     onTap: () {
-                      Navigator.pushNamed(context, '/home');
+                      if (_usernameController.text != '' && _passwordController.text != '' && _confirmController.text != '') {
+                        if (_passwordController.text == _confirmController.text) {
+                          sendData(context);
+                          
+                        }
+                      }   
                     },
                     child: Container(
                       decoration: BoxDecoration(
-                        color: Color.fromARGB(255, 0, 83, 145),
+                        color: const Color.fromARGB(255, 0, 83, 145),
                         borderRadius: BorderRadius.circular(30),
                       ),
                       padding: const EdgeInsets.fromLTRB(56, 15, 56, 18),
@@ -97,6 +199,43 @@ class SignUpScreen04 extends StatelessWidget {
         ]),
       ),
     ));
+  }
+
+  Future<void> sendData(BuildContext context) async {
+    SharedPreferences prefs = await SharedPreferences.getInstance();
+    String? name = prefs.getString('name') ?? '';
+    String? email = prefs.getString('email') ?? '';
+    String? birthday = prefs.getString("date_of_birth") ?? '';
+    String ? gender = prefs.getString("email") ?? '';
+    String? occupation = prefs.getString("occupation") ?? '';
+
+    String url = 'http://188.166.196.163:8002/users/register/';
+
+     Map<String, dynamic> jsonData = {
+    'email': email,
+    'name': name,
+    'gender': gender,
+    'date_of_birth': birthday,
+    'occupation': occupation,
+    'username': _usernameController.text.trim(),
+    'password': _passwordController.text.trim()
+    };
+    String requestData = jsonEncode(jsonData);
+
+    try {
+      final response = await http.post(
+        Uri.parse(url),
+        body: requestData
+      );
+      if (response.statusCode == 200) {
+        Map<String, dynamic> responseData = jsonDecode(response.body);
+        String token = responseData['id'];
+        Navigator.pushNamed(context, '/home');
+      }
+    }
+    catch(e) {
+      log('Exception caught: $e');
+    }
   }
 }
 

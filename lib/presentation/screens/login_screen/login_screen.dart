@@ -17,7 +17,7 @@ class LoginScreen extends StatelessWidget {
   final TextEditingController _passwordController = TextEditingController();
 
   Future<void> userLogin(BuildContext context) async {
-    const String url = 'https://ba50-112-134-151-108.ngrok-free.app/users/login/';
+    const String url = 'http://188.166.196.163:8002/users/login/';
     String email = _usernameController.text.trim();
     String password = _passwordController.text.trim();
 
@@ -158,7 +158,6 @@ class LoginScreen extends StatelessWidget {
                         )),
                         onPressed: () {
                           userLogin(context);
-                          Navigator.pushNamed(context, "/home");
                         },
                         child: Text(
                           "Sign In",
