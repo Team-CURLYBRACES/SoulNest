@@ -230,6 +230,7 @@ class SignUpScreen04 extends StatelessWidget {
       if (response.statusCode == 200) {
         Map<String, dynamic> responseData = jsonDecode(response.body);
         String token = responseData['id'];
+        prefs.setString('id', token);
         Navigator.pushNamed(context, '/home');
       }
     }
