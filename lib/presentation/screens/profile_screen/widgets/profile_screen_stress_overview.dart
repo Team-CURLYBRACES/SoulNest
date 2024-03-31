@@ -4,21 +4,29 @@ import 'package:soulnest/presentation/screens/home_screen/widgets/home_bar_graph
 import 'package:soulnest/presentation/screens/profile_screen/widgets/stress_message.dart';
 
 class StressOverView extends StatelessWidget {
-  const StressOverView({super.key});
+  final List<double> stressPercentages;
+   // Define a list to store stress percentages
+
+  const StressOverView({
+    Key? key,
+    required this.stressPercentages, // Constructor to receive stress percentages
+  }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    List<double> weeklySummary = [
-      80,
-      90,
-      60,
-      100,
-      20,
-      90,
-      95,
-    ];
+    // Convert stress percentages to weekly summary
+      List<double> weeklySummary = [
+        90,
+        40,
+        90,
+        95,
+        60,
+        90,
+        50,
+      ];
+    //List<double> weeklySummary = stressPercentages.map((percentage) => percentage * 100).toList();
 
-        // Calculate average weekly stress
+    // Calculate average weekly stress
     double averageWeeklyStress = weeklySummary.reduce((a, b) => a + b) / weeklySummary.length;
 
     // Determine stress level
@@ -47,8 +55,8 @@ class StressOverView extends StatelessWidget {
             child: Text(
               "Weekly Stress Levels",
               style: Theme.of(context).textTheme.displaySmall?.copyWith(
-                    fontWeight: FontWeight.w600,
-                  ),
+                fontWeight: FontWeight.w600,
+              ),
             ),
           ),
           SizedBox(
@@ -75,23 +83,23 @@ class StressOverView extends StatelessWidget {
                             Text(
                               "17 Feb - 23 Feb",
                               style: Theme.of(context)
-                                  .textTheme
-                                  .displaySmall
-                                  ?.copyWith(
-                                    fontSize: 14,
-                                    fontWeight: FontWeight.w500,
-                                    color: Color.fromARGB(255, 95, 95, 95),
-                                  ),
+                                .textTheme
+                                .displaySmall
+                                ?.copyWith(
+                                  fontSize: 14,
+                                  fontWeight: FontWeight.w500,
+                                  color: Color.fromARGB(255, 95, 95, 95),
+                                ),
                             ),
                             Text(
                               "Weekly Avg. ",
                               style: Theme.of(context)
-                                  .textTheme
-                                  .displaySmall
-                                  ?.copyWith(
-                                    fontSize: 16,
-                                    fontWeight: FontWeight.w500,
-                                  ),
+                                .textTheme
+                                .displaySmall
+                                ?.copyWith(
+                                  fontSize: 16,
+                                  fontWeight: FontWeight.w500,
+                                ),
                             ),
                           ],
                         ),
@@ -103,12 +111,12 @@ class StressOverView extends StatelessWidget {
                             Text(
                               averageWeeklyStress.toStringAsFixed(2), // Display average weekly stress,
                               style: Theme.of(context)
-                                  .textTheme
-                                  .displayLarge
-                                  ?.copyWith(
-                                    fontSize: 42,
-                                    fontWeight: FontWeight.w500,
-                                  ),
+                                .textTheme
+                                .displayLarge
+                                ?.copyWith(
+                                  fontSize: 42,
+                                  fontWeight: FontWeight.w500,
+                                ),
                             ),
                             const SizedBox(
                               width: 15,
@@ -116,12 +124,12 @@ class StressOverView extends StatelessWidget {
                             Text(
                               stressLevel,
                               style: Theme.of(context)
-                                  .textTheme
-                                  .displaySmall?.copyWith(
-                                    fontSize: 16,
-                                    fontWeight: FontWeight.w600,
-                                    color: stressColor,
-                                  ),
+                                .textTheme
+                                .displaySmall?.copyWith(
+                                  fontSize: 16,
+                                  fontWeight: FontWeight.w600,
+                                  color: stressColor,
+                                ),
                             ),
                           ],
                         )
@@ -157,7 +165,7 @@ class StressOverView extends StatelessWidget {
                     // Navigate to the relevant page based on the stress level
                     switch (stressLevel) {
                       case 'Normal':
-                        Navigator.pushNamed(context, '/chatbot_screen');
+                        Navigator.pushNamed(context, '/chat_screen');
                         break;
                       case 'Mild Stress':
                         Navigator.pushNamed(context, '/therapy_exercises_screen');
@@ -175,44 +183,6 @@ class StressOverView extends StatelessWidget {
           )
         ],
       ),
-    );
-  }
-}
-
-class StressValue extends StatelessWidget {
-  final String title;
-  final String value;
-  final Color color;
-  const StressValue({
-    super.key,
-    required this.title,
-    required this.value,
-    required this.color,
-  });
-
-  @override
-  Widget build(BuildContext context) {
-    return Row(
-      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-      children: [
-        Row(
-          children: [
-            Container(
-              width: 11,
-              height: 11,
-              decoration: BoxDecoration(
-                color: color,
-                borderRadius: BorderRadius.circular(5),
-              ),
-            ),
-            const SizedBox(
-              width: 5,
-            ),
-            Text(title),
-          ],
-        ),
-        Text(value)
-      ],
     );
   }
 }
