@@ -159,7 +159,6 @@ class LoginScreen extends StatelessWidget {
                         )),
                         onPressed: () {
                           userLogin(context);
-                          //Navigator.pushNamed(context, "/home");
                         },
                         child: Text(
                           "Sign In",

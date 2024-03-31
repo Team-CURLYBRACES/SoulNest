@@ -30,8 +30,7 @@ class _ChatScreenState extends State<ChatScreen> {
 
   @override
   Widget build(BuildContext context) {
-    final  logger = Logger();
-    log(_id);
+    log("hi$_id");
     return Scaffold(
       body: Container(
         width: double.maxFinite,
@@ -110,8 +109,8 @@ class _ChatScreenState extends State<ChatScreen> {
 
   sendPromptToDB(String text, String token) {
 
-    String url = "https://ba50-112-134-151-108.ngrok-free.app/users/update_chat/";
-      Map<String, dynamic> data = {"text": text, "is_stress_checked": "false"};
+    String url = "https://a42d-112-134-149-196.ngrok-free.app/users/update_chat/";
+      Map<String, dynamic> data = {"text": text, "is_stress_checked": false};
       String jsonData = jsonEncode(data);
 
       final response = http.post(
@@ -129,7 +128,7 @@ class _ChatScreenState extends State<ChatScreen> {
     String? token = prefs.getString('id');
     if (token != null) {
       setState(() {
-        _id = _id == '' ? token : ''; 
+        _id = token; 
       });
     }
   }
